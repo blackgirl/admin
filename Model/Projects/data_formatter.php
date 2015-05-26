@@ -29,7 +29,8 @@
 	                $this->GetTagList($obj->technologies, 'glyphicon-wrench')."</div></section>";
 	            $formTable .= $this->MadeCollapsedPanel($view,$obj->title,$obj->id);
 	        }
-	        return $formTable.'</form>';
+            return $formTable;
+	        // return $formTable.'</form>';
         }
 
         function GetImgsSlider($imgsArray) {

@@ -5,8 +5,14 @@ require_once('model/projects/data_formatter.php');
         $df = new Data_Formatter();
         $array = $uc->allProjects();
         include ('view/includes/form_top_button_panel.php');
-        $view = $df->GetFormTable($array);
-        echo $view;
+        if(isset($_GET['route'])) { // Authorization
+    $route = $_GET['route'];
+    switch($route){
+        case "offers": {include ('view/offer_page.php');} break;
+        default: {$view = $df->GetFormTable($array);echo $view;} break;
+    }
+}
+        
     
 
 // session_start();
@@ -34,4 +40,4 @@ require_once('model/projects/data_formatter.php');
 // </html>
 // _END;
 // }}
-// ?>
+ ?>

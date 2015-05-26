@@ -1,66 +1,10 @@
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Offer page</title>
-	<meta name="description" content="software development, software outsourcing, out-staffing, design">
-  <meta name="keywords" content="software development, software outsourcing, out-staffing, design">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->
-	<link href="img/favicon.png" rel="icon" type="image/png">
-	<!-- Bootstrap style -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!-- slick slider style -->
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<!-- Font Awesome Style -->
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<!-- Animate -->
-    <link href="css/animate.css" rel="stylesheet">
-	<!-- Theme style -->
-	<link href="css/offer-page.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet"> 
-	<!-- Bootstrap override style -->                 
-  <link href="css/bootstrap-override.css" rel="stylesheet">
-	    <!-- Google Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Fauna+One&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese' rel='stylesheet' type='text/css'>
-	
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="js/modernizr.js"></script>
-</head>
-<body id="OfferPage">
-<div class="wrapper">
-<!-- Header -->
-<header id="home">    
-    <nav class="navbar navbar-top" role="navigation">
-        <div class="navbar-inner">
-            <div class="container">                       
-	            <a href= "#" class="back-to-top"><img src="img/logo_big.png " alt="logo" class="logo"></a>         
-	            <!-- Menu -->
-	            <ul class="nav">
-	                <li class="active">
-		              	<div class="nav-download">
-		              		<i class="fa fa-download"></i>
-  							<a href="index.html" title="">Download as <span class="pdf">PDF</span></a>
-  						</div>
-					</li>
-	            </ul>
-	            <!-- Menu End -->
-	            <div style="clear:both;"></div>                  
-			    <!-- <div class="header-title">
-			  		<span>OFFER TO </span><span class="fb">Facebook</span>
-				</div> -->
-        	</div>
-    	</div>
-    </nav>
-</header>
-<section class="title">
+
+<div class="wrapper" >
+<!-- <section class="title">
 	<div class="header-title">
   		<span>OFFER TO </span><span class="fb">Facebook</span>
 	</div>
-</section> 
+</section>  -->
 <!-- <div style="clear:both;"></div> -->
 <section class="content">
 	<div class="offer-content">
@@ -275,107 +219,6 @@
 					</table>
 				</div>
 			</div>
-		</div class="offer-estimate">
+		</div >
 	</div>
 </section>
-		<div class="offer-footer">
-			
-		</div>
-	</div>
-	</script>
-<!-- Javascript -->
-<!-- Placed at the end of the document so the pages load faster -->
-  <script src="js/jquery.js"></script> 
-  <script src="js/bootstrap.min.js"></script>  
-  <script>
-    $(function () {
-	    $('input').on('change', function() {
-	        var y = parseInt(0);
-	          $('input').each(function(index){
-	          		var x = parseInt($(this).val());
-	          		if(isFinite(x)) y += x;
-	            })
-	          $('.total').text(y);
-	           // .filter().show();
-	        })
-	    // Portfolio slider & filter
-	    $("#portfolio-slider").slick({
-	      dots: true,
-	      infinite: true,
-	      slidesToShow: 4,
-	      slidesToScroll: 4
-	      });
-
-	    var filtered = false;
-
-	    $('.show-and-hide-content select').on('change', function() {
-	        var x = $(this).find('option:selected').attr('data-type');
-	        if(!(x)) {
-	          $(".content").show();
-	          $('#portfolio-slider').slick('slickUnfilter');
-	          filtered = false;
-	        } else {
-	          $('#portfolio-slider').slick('slickFilter','.content-' + x);
-	          filtered = true;
-	        }
-	    });
-
-    });
-
-    + function($) {
-    'use strict';
-    // UPLOAD CLASS DEFINITION
-    // ======================
-    var dropZone = $('#drop-zone');
-    // var uploadForm = $('js-upload-form');
-
-    var startUpload = function(files) {
-        console.log(files)
-    }
-
-    // dropZone.on('click', function(e) {
-    //     var uploadFiles = $('#js-upload-files').files;
-    //     e.preventDefault()
-    //     startUpload(uploadFiles)
-    // })
-
-    dropZone.ondrop = function(e) {
-        e.preventDefault();
-        this.className = 'upload-drop-zone';
-        startUpload(e.dataTransfer.files)
-    }
-
-    dropZone.ondragover = function() {
-        this.className = 'upload-drop-zone drop';
-        return false;
-    }
-
-    dropZone.ondragleave = function() {
-        this.className = 'upload-drop-zone';
-        return false;
-    }
-
-}(jQuery);
-</script>
- <script src="js/jquery.js"></script> 
-  <script src="js/bootstrap.min.js"></script>  
-  <script src="js/jquery.easing.js"></script>   
-  <script src="js/jquery.flexslider-min.js"></script>
-  <script src="js/jquery.isotope.min.js"></script>   
-  <script src="js/jquery.fitvids.js"></script>
-  <script src="js/jquery.appear.js"></script>  
-  <script src="js/retina.js"></script>
-  <script src="js/functions.js"></script>   
-  <script src="js/respond.min.js"></script>  
-  <script src="js/jquery.parallax-1.1.3.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.meanmenu.2.0.min.js"></script>
-  <script src="js/jquery.nicescroll.min.js"></script>
-  <script src="js/jquery.refineslide.js"></script>      
-  <script src="js/sly.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/jquery.zoom.js"></script>
-  <script type="text/javascript" src="slick/slick.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-</body>
-</html>

@@ -17,6 +17,8 @@ require_once('model/projects/data_formatter.php');
     <script src="view/js/bootstrap-table.js"></script>
     <script src="view/js/jquery.flexslider-min.js"></script>
     <script src="view/js/admin_onload.js"></script>
+    <script src="view/js/dropzone.js"></script>
+    <!-- // <script src="view/css/dropzone.css"></script> -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="view/css/bootstrap-table.css">
@@ -45,7 +47,8 @@ if(isset($_GET['route'])) { // Authorization
             }
             // else include('view/users/auth.php');
         } break;
-        case "projects": {
+        case "projects": 
+        case "offers": {
             ($_SESSION['id']!="" && $_SESSION['name']!='')?include('view/users/adminpage.php'):include('view/users/auth.php');
         } break;
         case "exit": {
@@ -83,7 +86,19 @@ elseif(!isset($_SESSION['name'])) include('view/users/auth.php');
         $uc = new Controller_Projects();
        
        
-        if($uc->addProject($_POST['new-project-title'],$_POST['new-project-url'], trim($_POST['new-project-description']),$_POST['new-project-feature'])) {
+        if($uc->addProject($_POST['new-project-title'],$_POST['new-project-url'], trim($_POST['new-project-description']),$_POST['new-project-feature'],$_FILES)) {
+            var_dump($_FILES);
+            $ds          = DIRECTORY_SEPARATOR;
+            $storeFolder = 'uploads';
+            if (!empty($_FILES)) {
+                $tempFile = $_FILES['file']['tmp_name'];
+                $fileName = $_FILES['file']['name'];
+                $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;
+                $targetFile =  $targetPath. $_FILES['file']['name'];
+                move_uploaded_file($tempFile,$targetFile);
+                insert('file_table',array('file_name' => $fileName));
+            }
+
             include 'view/includes/reloader.php';
             // $file = fopen($date.".html", 'a');
             // $news = preg_replace("/[\r\n]+/", "</p><p>", trim($_POST['new-project']));

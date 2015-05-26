@@ -12,8 +12,9 @@ class Controller_Projects {
     function deleteProjects($idsArray){
         return projectsRepository::getInstance()->deleteProjects($idsArray);
     }
-    function addProject($title,$link,$desc,$keyftrs){
-        $newProject = new model_project($title,$desc,implode('|',$keyftrs));
+    function addProject($title,$link,$desc,$keyftrs,$imgs){
+        var_dump( $imgs);
+        $newProject = new model_project($title,$desc,implode('|',$keyftrs),$imgs);
         return projectsRepository::getInstance()->addProject($newProject);
     }
     function editProject($project){

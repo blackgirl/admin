@@ -8,7 +8,7 @@
           <ul class="nav">
             <li class="active"><?php echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?route=projects" title="">'; ?>Projects /</a></li>
             <li>
-              <?php echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?route=offers">'; ?>Offers /</a></li> 
+              <?php echo '<a href="/cmstest/index.php/offer_page.php">'; ?>Offers /</a></li> 
             <li><a href="http://unicreo.com" >Site /</a></li> 
             <li><a href="/cmstest/index.php?route=exit" >Exit</a><span class="glyphicon glyphicon-log-out"></span></li> 
           </ul>

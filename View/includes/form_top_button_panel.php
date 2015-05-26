@@ -13,18 +13,20 @@
 			<span class="glyphicon glyphicon-trash"></span></button>
 		
 	</div>
-<div class="panel-group add-new-project" id="accordion" role="tablist" aria-multiselectable="true">
+</form>
+    <?php    include ('section_add_edit_project.php'); ?>
+
+<!-- <div class="panel-group add-new-project" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default"><div class="panel-heading" role="tab" id="headingAdd">
   		</div>
   		<div id="collapseAdd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAdd">
+		<form action="index.php?route=projects" method="post" class="dropzone">
 	      <div class="panel-body">
 			<h4 class="panel-title">Add New Project</h4>
 			<section class="">
 				<div class="form-group">
 				    <label for="new-project-title" class="">Project title</label>
 				    <input type="text" class="form-control" name="new-project-title"placeholder="Add Title"/>
-				<!-- </div> -->
-				<!-- <div class="form-group col-md-6"> -->
 				    <label for="new-project-url"  class="">Site link</label>
 				    <input type="text" class="form-control" name="new-project-url"placeholder="http://"/>
 				</div>
@@ -39,16 +41,14 @@
 					<a type="button" class="btn btn-default btn-sm" id="btn-add-line">
 						<span class="glyphicon glyphicon-plus"></span>
 					</a>
-					<!-- <input type="text" name="addFeature" placeholder="Add Feature"/> -->
 				</div>
 				<div class="form-group">
 			    <label for="exampleInputFile">File input</label>
-			    <input type="file" id="exampleInputFile">
-			    <!-- <p class="help-block">Example block-level help text here.</p> -->
-  </div>
+				<input type="file" id="exampleInputFile">
+			  </div>
 			</section>
 			<button name="add-new-project" class="btn btn-success pull-right" type="submit">Add New</button>
 	      </div>
 		</div>
 	</div>
-</div>
+</div> -->

@@ -81,8 +81,8 @@ class projectsRepository {
 	}
 
 	function addProject($project) {
-		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs) 
-	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."')");
+		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs,imgs) 
+	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."','".$project->images."')");
 		return $query;
 	}
 	// function getProject($id) {

@@ -169,8 +169,8 @@ input[type=checkbox].glyphicon{
 	text-align: center;
 }
 #AdminPage .panel-group.add-new-project .panel-body {
-	width:50%;
-	margin:0 auto;
+	/*width:50%;*/
+	/*margin:0 auto;*/
 }
 #AdminPage .panel-group.add-new-project .form-group.keyftrs input {
 	margin-top:10px;
@@ -187,4 +187,33 @@ input[type=checkbox].glyphicon{
 }
 #AdminPage blockquote>ul {
 	-webkit-padding-start: 0px;
+}
+
+/* Add new project dropsone*/
+form.col-md-4.dropzone.dz-clickable {
+	min-height: 50%;
+	height: auto;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	text-align: left;
+	padding:10px;
+}
+.dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete {
+	float:left;
+}
+.dz-preview .glyphicon-remove {
+	position: absolute;
+	top:35px;
+	color: seagreen;
+	font-size: 18px;
+	left:110px;
+	border:none;
+	cursor: pointer;
+	opacity: .75;
+}
+.dz-preview .glyphicon-remove:hover {
+	opacity: 1;
+}
+.dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete div:not(.dz-image) {
+	display:none;
 }
