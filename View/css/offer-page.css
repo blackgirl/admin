@@ -1,0 +1,248 @@
+body, html {
+	width:100%;
+	/*height:100%;*/
+	margin:0;
+	padding:0;
+	/*overflow:scroll !important;*/
+}
+
+a {
+  color:#78818B;
+  -webkit-transition: all 200ms ease-in; 
+     -moz-transition: all 200ms ease-in;
+      -ms-transition: all 200ms ease-in;
+       -o-transition: all 200ms ease-in;
+          transition: all 200ms ease-in; 
+}
+ 
+#OfferPage a:hover, #OfferPage a:focus, #OfferPage a:active {
+  text-decoration:none;
+  color: #000;
+}
+
+.hide {
+  display:none;
+}
+
+li {
+	list-style: none;
+	margin-left: 0;
+}
+
+/* header */
+#OfferPage .navbar {
+	box-shadow: none !important;
+}
+.navbar-top {
+	position: relative;
+}
+.back-to-top {
+	float: left;
+}
+.container {
+	padding: 0 30px;
+}
+.container ul.nav {
+	float: right;
+	padding:23px 0px; 
+}
+.nav-download {
+	padding:5px 25px;
+	background: #ebebeb;
+	border-radius:5px;
+	color:#000;
+}
+.nav-download a {
+	margin-left:5px;
+}
+.pdf {
+	color:rgb(5, 207, 255);
+	font-weight: 700;
+}
+
+/* section title */
+.title {
+	background: #fff;
+}
+.header-title {
+	line-height: 30px;
+	text-align: center;
+	color: #000;
+	font-size:24px;
+	font-weight: 700;
+	padding-bottom: 25px;
+}
+.header-title span.fb {
+	color: #CCC;
+	font-size: 32px;
+	font-weight: 400;
+}
+
+/* Content */
+#OfferPage section {
+	/*padding-top: 125px;*/
+	background: #000;
+}
+section.row {
+	  width: 100%;
+}
+.preject-title {
+	text-align: center;
+	padding: 25px 0;
+}
+.preject-title span {
+	font-size:32px;
+	font-weight:400;
+	color:#fff;
+}
+.overview-content {
+	position:relative;
+	margin:20px 0px;
+	text-align:left;
+}
+.overview-icon {
+	float:left;
+	text-align:center;
+	margin-bottom:30px;
+}
+.overview-icon i {
+	position: relative;
+	display: inline-block;
+	margin: 0 auto;
+	width:80px;
+	height:80px;
+	line-height:80px;
+	font-size: 32px;
+	border-radius: 50%;
+	color: #FFF;    
+	background: #464646;
+	margin-right: 20px;
+	text-align:center;
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	transition: all 0.6s;
+}
+.overview-content:hover i {
+	font-size: 40px;
+	background: #FF0632;
+	background-color: #FF0632;
+}
+.row.overview{
+	margin: 0 30px;
+	/*padding: 27px 0px 15px 0px; */
+	position:relative;
+	-webkit-backface-visibility: hidden;
+}
+.overview-title {
+	color: #fff;
+	font-size:18px;
+	margin:10px 0px;
+}
+.overview-content p {
+	font-size: 16px;
+}
+
+/* attachments-list */
+.attachments-content {
+	position:relative;
+	margin:30px 0px 0;
+	text-align:left;
+}
+.project-image.add {
+	text-align: center;
+	padding: 30% 0;
+	cursor: pointer;
+	background:none;
+}
+.project-image .add-text {
+	font-size: 18px;
+}
+.project-image .add-icon {
+	font-size: 100px !important;
+	line-height: .75;
+}
+.attachments-content .project-item-isotope {
+	background:#000;
+	border:2px solid #282828;;
+	color:#282828;
+}
+.attachments-content .project-item-isotope:hover {
+	border:2px solid #999;
+	background:#282828;
+	color: #999;
+}
+
+/* Estimation */
+.offer-estimate {
+	background: #FFF;
+	color:#000;
+	padding: 30px;
+}
+.estimation-title {
+	font-size: 18px;
+	font-weight: 600;
+}
+.table-responsive {
+	margin-top: 20px;
+}
+.table-bordered .task {
+	border-left-color: #000; 
+}
+.table-bordered {
+	border-right-color: #000; 
+	font-size: 16px;
+}
+#OfferPage thead th {
+	background:#282828;
+	color:#fff;
+	font-weight: 400;
+	font-size: 18px;
+}
+.offer-estimate th,
+.offer-estimate td {
+	/*text-align: center;*/
+	width: 33%;
+}
+#OfferPage tbody {
+	color:#999;
+	border-left-color: #999;
+}
+tfoot .total-row td {
+	border:1px solid #fff;
+	border-left-color:#fff;
+	border-top-color: #999;
+}
+.estimation-content td input {
+	border: none !important;
+	margin-bottom: 0;
+}
+
+
+
+.upload-drop-zone .add-icon {
+	font-size: 100px !important;
+	line-height: .75;
+}
+.upload-drop-zone .add-text {
+	font-size: 18px;
+}
+.upload-drop-zone {
+	text-align: center;
+	padding: 30% 0;
+	cursor: pointer;
+	background: none;
+}
+#js-upload-files {
+	opacity: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 777;
+}
+.slick-slide {
+	width: auto !important;
+}

@@ -1,0 +1,190 @@
+#AdminPage form {
+	text-align: center;
+}
+
+#AdminPage .btn-group-sm>.btn, .btn-sm {
+	padding: 10px 10px;
+	margin: 15px 5px 0px 0px;
+	font-size: 16px;
+	color: slategrey;
+}
+#AdminPage .btn-group-sm>.btn:first-child, .btn-sm:first-child {
+	margin-left: 15px;
+}
+#AdminPage .btn-group-sm>.btn.btn-success, .btn-sm.btn-success {
+	background-color:#27bf6b;
+	border-color:#27bf6b;
+}
+#AdminPage .btn-group-sm>.btn.btn-danger, .btn-sm.btn-danger {
+	background-color:#dd2500;
+	border-color:#dd2500;
+}
+#AdminPage .btn-group-sm>.btn.btn-info, .btn-sm.btn-info,
+#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+	background-color:#0083d0;
+	border-color:#0083d0;
+	opacity: 1;
+}
+#AdminPage .btn-group-sm>.btn.btn-default, .btn-sm.btn-default {
+	color: #333;
+}
+#AdminPage .btn-group-sm>.btn.btn-default, .btn-sm.btn-default,
+#AdminPage .btn-group-sm>.btn.btn-success, .btn-sm.btn-success,
+#AdminPage .btn-group-sm>.btn.btn-warning, .btn-sm.btn-warning,
+#AdminPage .btn-group-sm>.btn.btn-danger, .btn-sm.btn-danger,
+#AdminPage .btn-group-sm>.btn.btn-info, .btn-sm.btn-info,
+#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+	background-color: #fff;
+	border-color: #fff;
+	
+}
+#AdminPage .btn-group>.btn:hover {
+	color: black;
+}
+#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+	color: #ccc;
+}
+#AdminPage .btn-group-sm>.btn.btn-warning, .btn-sm.btn-warning {
+	background-color:#eadb34;
+	border-color:#eadb34;
+}
+.td-imgs img {
+	padding: 0;
+	margin: 0;
+}
+.table-list td {
+	height: auto;
+	overflow-y: hidden;
+	text-overflow: ellipsis;
+	padding:0 15px;
+	font-size: 12px;
+}
+.table-list td:last-child {
+	padding:0;
+	margin:0;
+}
+.panel-body .glyphicon-briefcase,
+.panel-body .glyphicon-wrench {
+	padding: 0 4px 0 0;
+	color:slategrey;
+	top: 2px;
+}
+.container ul.nav {
+	padding: 0;
+}
+.navbar {
+	padding: 0px 0px 0px 0px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	margin-bottom: 0px;
+}
+
+#AdminPage .panel-group .center-nav-content-slider .flex-direction-nav a {
+	font-size: 32px;
+	width: 30px;
+	line-height: 30px;
+	height:30px;
+	background: none;
+	opacity: 1;
+	color: #ccc;
+	background: rgba(255,255,255,.5);
+}
+#AdminPage .panel-group .flex-direction-nav a:hover {
+	color: seagreen;
+	background: rgba(255,255,255,.1);
+}
+/*#AdminPage .panel-group .center-nav-content-slider .flex-direction-nav a:last-child {}*/
+#AdminPage .nav span.glyphicon-log-out {
+	margin-left: 5px;
+	color:grey;
+	opacity: .5;
+}
+#AdminPage .nav a:last-child:hover,
+#AdminPage .nav span.glyphicon-log-out {
+	opacity: 1;
+}
+/*Custom Checkbox */
+.glyphicon.glyphicon-unchecked:before {
+	visibility: visible;
+	visibility: visible;
+	color: grey;
+	font-family: 'Sourse Sans';
+	line-height: 10px;
+	font-size: 16px;
+}
+.glyphicon.glyphicon-unchecked:hover:before,
+.glyphicon.glyphicon-unchecked:checked + a,
+.glyphicon.glyphicon-unchecked + a:hover,
+.glyphicon.glyphicon-unchecked:checked:before {
+	color: seagreen;
+}
+.glyphicon.glyphicon-unchecked:hover {
+	cursor: pointer;
+}
+.glyphicon.glyphicon-unchecked:checked:before {
+   content: "\e013";
+   font-family: 'Glyphicons Halflings';
+}
+input[type=checkbox].glyphicon{
+    visibility: hidden;
+}
+#AdminPage .panel-group {
+	margin:0;
+}
+#AdminPage .panel-group .panel {
+	border-radius: 0px;
+}
+#AdminPage .panel-default {
+	border-color: #ebebeb;
+	border-top: 1px solid transparent;
+}
+#AdminPage .panel-heading {
+	text-align: left;
+	background: white;
+}
+#AdminPage .panel-title>a {
+	margin-left: 10px;
+}
+#AdminPage .panel-body {
+	border-color: transparent;
+}
+#AdminPage .panel-body {
+	text-align: left;
+}
+#AdminPage .panel-body h5 {
+	font-size: 16px;
+	margin: 0px;
+}
+#AdminPage .panel-body h5.col-md-8 {
+	font-size: 18px;
+	margin-bottom: 20px;
+	color: black;
+}
+#AdminPage .panel-body .btn.tag:hover {
+	text-decoration: line-through;
+	/*color: #0083d0;*/
+}
+#AdminPage .panel-group.add-new-project .panel-title {
+	text-align: center;
+}
+#AdminPage .panel-group.add-new-project .panel-body {
+	width:50%;
+	margin:0 auto;
+}
+#AdminPage .panel-group.add-new-project .form-group.keyftrs input {
+	margin-top:10px;
+}
+#AdminPage .panel-group.add-new-project #btn-add-line {
+	margin:0;
+}
+#AdminPage .panel-group.add-new-project #btn-add-line:hover {
+	color: seagreen;
+}
+
+#AdminPage blockquote {
+	border-color: seagreen;
+}
+#AdminPage blockquote>ul {
+	-webkit-padding-start: 0px;
+}

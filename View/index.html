@@ -1,0 +1,39 @@
+<!-- <!doctype html> -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet prefetch" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.css">
+    <link rel="stylesheet" href="view/css/bootstrap-table.css">
+    <link rel="stylesheet" href="view/css/normalize.min.css">
+    <link rel="stylesheet" href="view/css/main.css">
+    <link rel="stylesheet" href="view/css/admin_page.css">
+</head>
+<body>
+<div id="wrap">
+	<div id="admin-npanel">
+	<form action="index.php" method="post">
+		<button id="notes-btn" name="btn-all-projects" class="admin-btn btn btn-info">All Projects</button>
+		<button id="edit-btn" name="btn-add-notes" class="admin-btn btn btn-default disabled">Add Project</button>
+	</form>	
+	<div id="notes"></div>
+	<div id="edit-area">
+		<form action="index.php" method="post" id="edit-form">
+			<h1><textarea name="new-note-title" title="title" rows="1"></textarea></h1>
+			<span>									
+				<textarea name="new-note" title="description"></textarea>
+			</span>
+			<input type="submit" name="add-new-note" value="Post to DB" class="admin-btn">
+		</form>        		
+	</div>
+	</div>
+</div>
+<!-- <script src="js/main.js"></script> -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table.js"></script>
+</body>
+</html>
