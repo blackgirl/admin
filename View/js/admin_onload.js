@@ -6,14 +6,41 @@ $(document).ready( function() {
   	var name = "new-project-feature[]";
   	var placeholder = "Add Feature";
   	addNewInputAfter(input, name,placeholder);
-//   	$("<input/>", {
-//   type:  "text",
-//   name:   "new-project-feature[]",
-//   class: "form-control",
-//   placeholder: "Add Feature"
-// }).insertAfter($(".keyftrs").find("input:last"));
   });
 
+  $('.glyphicon-unchecked').on('click',function(){
+  	$(this).toggleClass('checked');
+  })
+  
+  $('.glyphicon-trash').on('click',function(){
+  	var a = [];
+
+	  $('.glyphicon-unchecked.checked').each(function(){
+	  	a.push( $(this).val());
+	  });
+
+	  	$.ajax({  
+	        type: "POST",  
+	        url: "index.php?route=projects",  
+	        data: {'ids_array':a},
+	        success: function(html){  
+	            $("body").html(html);  
+	        }
+	    });  
+        return false;
+  });
+  $(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+});
+  $(document).ready( function() {
+    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+        var loaded = $('.image_loaded').html();
+        $('.image_loaded').html(loaded + '<p>'+label+'</p>');
+    });
+});
   $('.keyftrs input').keypress(function (e) {
   if (e.which == 13) {
   	e.preventDefault();

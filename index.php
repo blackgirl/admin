@@ -74,8 +74,8 @@ elseif(!isset($_SESSION['name'])) include('view/users/auth.php');
         echo $view;
     }
     // TODO !!!! delete-offers
-    if(isset($_POST['deleteProjects']) && (isset($_POST['project']))) {
-        $idsArray = $_POST['project'];
+    if(isset($_REQUEST['ids_array'])) {
+        $idsArray = $_REQUEST['ids_array'];
         $uc = new Controller_Projects();
         if($uc->deleteProjects($idsArray)) include 'view/includes/reloader.php';
     }
