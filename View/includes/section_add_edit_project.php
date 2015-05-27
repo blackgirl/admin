@@ -4,7 +4,7 @@
   		<div id="collapseAdd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAdd">
 	      <div class="panel-body">
 			<h4 class="panel-title">Add New Project</h4>
-			<form action="index.php?route=projects" method="post">
+			<form action="index.php?route=projects" method="post" enctype="multipart/form-data">
 				<section class="col-md-8">
 				<div class="form-group">
 				    <label for="new-project-title" class="">Project title</label>
@@ -29,9 +29,13 @@
 			<button name="add-new-project" class="btn btn-success col-md-2 col-md-offset-10" type="submit">Add New</button>
 			</section>
 			<!-- Dropzone -->
+    <input type="file" name="files[]" multiple/>
 			</form>
-			<form action="index.php?route=projects" method="post" class="col-md-4 dropzone" id="myDropzone">
-			</form>
+			<!-- <form action="index.php?route=projects" method="post" class="col-md-4 dropzone" id="myDropzone">
+			</form> -->
+			<!-- <form action="index.php?route=projects" method="POST" enctype="multipart/form-data"> -->
+    <!-- <input type="submit"/> -->
+<!-- </form> -->
 			<script>
 			  // myDropzone is the configuration for the element that has an id attribute
 			  // with the value my-dropzone (or myDropzone)
@@ -53,7 +57,7 @@
 			          // you can do the AJAX request here.
 			        });
 			        // var a = file.previewElement.find('img');
-			        console.log(file.previewTemplate.children[0].childNodes[0].attributes['src'].val());
+			        // console.log(file.previewTemplate.children[0].childNodes[0].attributes['src'].val());
 			        console.log(file.previewTemplate.children[0].childNodes[0].src);
 			        // console.log(a);
 			        // Add the button to the file preview element.

@@ -1,8 +1,9 @@
 <?php
 session_start();
 ini_set('display_errors', 1);
-require_once('controller/userController.php');
+require_once('controller/users/userController.php');
 require_once('controller/projects/controller_projects.php');
+// require_once('helpers/uploader.php');
 require_once('model/projects/data_formatter.php');
 ?>
 <!-- <!DOCTYPE html> -->
@@ -85,33 +86,10 @@ elseif(!isset($_SESSION['name'])) include('view/users/auth.php');
     if(isset($_POST['add-new-project'])) {
         $uc = new Controller_Projects();
        
-       
-        if($uc->addProject($_POST['new-project-title'],$_POST['new-project-url'], trim($_POST['new-project-description']),$_POST['new-project-feature'],$_FILES)) {
-            var_dump($_FILES);
-            $ds          = DIRECTORY_SEPARATOR;
-            $storeFolder = 'uploads';
-            if (!empty($_FILES)) {
-                $tempFile = $_FILES['file']['tmp_name'];
-                $fileName = $_FILES['file']['name'];
-                $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;
-                $targetFile =  $targetPath. $_FILES['file']['name'];
-                move_uploaded_file($tempFile,$targetFile);
-                insert('file_table',array('file_name' => $fileName));
-            }
-
+        if($uc->addProject($_POST['new-project-title'],$_POST['new-project-url'], trim($_POST['new-project-description']),$_POST['new-project-feature'])) {
+            require_once('helpers/uploader.php');
             include 'view/includes/reloader.php';
-            // $file = fopen($date.".html", 'a');
-            // $news = preg_replace("/[\r\n]+/", "</p><p>", trim($_POST['new-project']));
-            // $lines = file('fish.html');
-            // foreach ($lines as $line) {
-                // if(trim($line)=="<!-- /Text block -->"){
-                    // $newPost = "<h1>".$_POST['new-project-title']."</h1>"."<span><p>".$news."</p></span>"; 
-                    // $test = fwrite($file, $newPost); 
-                // }
-                // $test = fwrite($file, $line);
-            // }
-            // fclose($file);
-        }
+            }
     }
 //-----------   КНОПКИ    -----------//
 /*if(isset($_POST['delUser'])){//удалить свой аккаунт

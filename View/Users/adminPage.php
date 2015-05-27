@@ -8,7 +8,7 @@ require_once('model/projects/data_formatter.php');
         if(isset($_GET['route'])) { // Authorization
     $route = $_GET['route'];
     switch($route){
-        case "offers": {include ('view/offer_page.php');} break;
+        // case "offers": {include ('view/offer_page.php');} break;
         default: {$view = $df->GetFormTable($array);echo $view;} break;
     }
 }

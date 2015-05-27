@@ -12,7 +12,7 @@
         }
         function GetImagesList($dataArray) {
         	if(count($dataArray)) {
-				return "<li class='li-imgs'>\n<img src='".implode("'></li><li><img src='",$dataArray)."'></button></li>";
+				return "<li class='li-imgs'>\n<img src='uni_imgs/".implode("'></li><li><img src='uni_imgs/",$dataArray)."'></button></li>";
         	}
         }
 	           

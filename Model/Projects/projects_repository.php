@@ -26,10 +26,10 @@ class projectsRepository {
 		return $arr;
 	}
 	function getProjectImgs($id) {
-		$query = mysqli_query($this->link,"SELECT url FROM uni_portfolio WHERE project_id = '".$id."'");
+		$query = mysqli_query($this->link,"SELECT * FROM uni_imgs WHERE project_id = '".$id."'");
 		$result = [];
 		while($imgs = mysqli_fetch_array($query)) {
-		     $result[] = $imgs['url'];
+		     $result[] = $imgs['file_name'];
 		}
 		return $result;
 	}
@@ -81,9 +81,13 @@ class projectsRepository {
 	}
 
 	function addProject($project) {
-		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs,imgs) 
-	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."','".$project->images."')");
+		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs) 
+	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."')");
+		// $imgs = mysqli_query($this->link, "INSERT INTO uni_portfolio (url) VALUES (".implode(',',$project->images).")");
 		return $query;
+	}
+	function getLastId() {
+		return mysqli_insert_id($this->link);
 	}
 	// function getProject($id) {
 	// 	return mysqli_query($this->link,"SELECT * FROM `uni_projects` WHERE id='".$id.'"');
