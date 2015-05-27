@@ -2,8 +2,7 @@
 require_once('config.php');
 require_once('controller/projects/controller_projects.php');
 $link = mysqli_connect(SERVER, LOGIN, PASSWORD, DATABASE);
-// class Helper_Uploader {
-    // function uploader($id) {
+
 if(isset($_FILES['files'])){
     $errors= array();
     $upload_status = false;
@@ -41,8 +40,6 @@ if(isset($_FILES['files'])){
         return $upload_status;
 	}
 }
-// }
-// }
 ?>
 
 

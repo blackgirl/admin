@@ -30,7 +30,6 @@
 	            $formTable .= $this->MadeCollapsedPanel($view,$obj->title,$obj->id);
 	        }
             return $formTable;
-	        // return $formTable.'</form>';
         }
 
         function GetImgsSlider($imgsArray) {

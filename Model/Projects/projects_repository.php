@@ -14,7 +14,6 @@ class projectsRepository {
 		return self::$instance;
 	}
 
-	//All posts from database in blog//
 	function allProjects() {
 		$query = mysqli_query($this->link,"SELECT * FROM uni_projects");
 		$arr = array();
@@ -83,7 +82,6 @@ class projectsRepository {
 	function addProject($project) {
 		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs) 
 	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."')");
-		// $imgs = mysqli_query($this->link, "INSERT INTO uni_portfolio (url) VALUES (".implode(',',$project->images).")");
 		return $query;
 	}
 	function getLastId() {
