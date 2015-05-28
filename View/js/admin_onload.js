@@ -14,14 +14,15 @@ $(document).ready( function() {
   
   $('.glyphicon-trash').on('click',function(){
   	var a = [];
-
+  	var type = $(this).closest('form').prop("action").indexOf('projects') > 0?'projects':'offers';
+    
 	  $('.glyphicon-unchecked.checked').each(function(){
 	  	a.push( $(this).val());
 	  });
 
-	  	$.ajax({  
+	  	$.ajax({
 	        type: "POST",  
-	        url: "index.php?route=projects",  
+	        url: "index.php?route="+type+"&type="+type,  
 	        data: {'ids_array':a},
 	        success: function(html){  
 	            $("body").html(html);  
@@ -29,6 +30,7 @@ $(document).ready( function() {
 	    });  
         return false;
   });
+
   $(document).on('change', '.btn-file :file', function() {
     var input = $(this),
         numFiles = input.get(0).files ? input.get(0).files.length : 1,

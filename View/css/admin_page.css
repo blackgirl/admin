@@ -163,21 +163,20 @@ input[type=checkbox].glyphicon{
 }
 #AdminPage .panel-body .btn.tag:hover {
 	text-decoration: line-through;
-	/*color: #0083d0;*/
 }
-#AdminPage .panel-group.add-new-project .panel-title {
+#AdminPage .panel-group.add-new-offer .panel-title,
+#OfferPage .panel-group.add-new-project .panel-title {
 	text-align: center;
 }
-#AdminPage .panel-group.add-new-project .panel-body {
-	/*width:50%;*/
-	/*margin:0 auto;*/
-}
+
 #AdminPage .panel-group.add-new-project .form-group.keyftrs input {
 	margin-top:10px;
 }
+#AdminPage .panel-group.add-new-offer #btn-add-line,
 #AdminPage .panel-group.add-new-project #btn-add-line {
 	margin:0;
 }
+#AdminPage .panel-group.add-new-offer #btn-add-line:hover,
 #AdminPage .panel-group.add-new-project #btn-add-line:hover {
 	color: lightseagreen;
 }

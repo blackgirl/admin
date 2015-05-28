@@ -53,3 +53,4 @@ class Controller_Projects {
     //     return projectsRepository::getInstance()->allAuthors();
     // }
 }
+?>

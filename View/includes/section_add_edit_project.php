@@ -1,3 +1,6 @@
+<form action="index.php?route=projects" method="post" >
+	<?php include ('view/includes/form_top_button_panel.php'); ?>
+</form>
 <div class="panel-group add-new-project" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default"><div class="panel-heading" role="tab" id="headingAdd">
   		</div>

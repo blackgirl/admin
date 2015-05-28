@@ -68,7 +68,6 @@ class projectsRepository {
 	// 	mysqli_query($this->link,"UPDATE uni_projects SET id=".$changedProject->id.",dnv=".$changedProject->dns.",title=".$changedProject->title.",link=".$changedProject->link.",description=".$changedProject->description.",keyftrs=".$changedProject->keyftrs.",expertises=".$changedProject->expertises.",technologies=".$changedProject->technologies." WHERE id= '".$id.' "');
 	// }
 	function deleteProjects($idsArray){
-		echo "DELETE";
 		$idsToDelete = [];
 		foreach ($idsArray as $key => $value) {
 			array_push($idsToDelete, $value);

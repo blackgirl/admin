@@ -3,8 +3,8 @@
 --
 -- Database: `muni`
 --
-CREATE DATABASE IF NOT EXISTS `muni` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `muni`;
+CREATE DATABASE IF NOT EXISTS `unicreo` DEFAULT CHARACTER SET latin1 COLLATE utf8_unicode;
+USE `unicreo`;
 
 -- --------------------------------------------------------
 

@@ -52,13 +52,5 @@
         			  $title.'</a></h4></div><div id="collapse'.$id.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading'.$id.'">'.
       				  '<div class="panel-body">'.$panelContent.'</div></div></div></div>';
         }
-        function GetButtonGroup($type = '') {
-        	// switch($type)
-        	return '<div class="btn-group" role="group" aria-label="...">'.
-        			 '<button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button>'.
-        			 '<button type="button" class="btn btn-info btn-sm disabled"><span class="glyphicon glyphicon-pencil"></span></button>'.
-        			 '<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-close"></span></button>'.
-        			 '<button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></div>';
-        }
 	}
 ?>
