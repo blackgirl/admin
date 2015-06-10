@@ -1,6 +1,7 @@
 <?php
 require_once('config.php');
 require_once('controller/projects/controller_projects.php');
+require_once('controller/offers/controller_offers.php');
 $link = mysqli_connect(SERVER, LOGIN, PASSWORD, DATABASE);
 
 if(isset($_FILES['files'])){
@@ -14,33 +15,38 @@ if(isset($_FILES['files'])){
         if($file_size > 2097152){
 			$errors[]='File size must be less than 2 MB';
         }
-        $uc = new Controller_Projects();
+        // $uc = new Controller_Projects();
+        if(isset($_GET['route'])) {
+            $type = $_GET['route'];
+            $controller_name = "Controller_".ucfirst($type);
+        }
+        $uc = new $controller_name;
         $ins_id = $uc->getLastId();
-        $query="INSERT into uni_imgs (`file_name`,`file_size`,`file_type`,`project_id`) VALUES('$file_name','$file_size','$file_type',".$ins_id."); ";
+        $tableName = ($type == 'projects')?'uni_imgs':'uni_offer_cases';
+        $colName = substr($type, 0, (strlen($type)-1));
+        // $query = "INSERT into uni_imgs (`file_name`,`file_size`,`file_type`,`project_id`) VALUES('$file_name','$file_size','$file_type',".$ins_id."); ";
+        $query = "INSERT into ".$tableName." (`file_name`,`file_size`,`file_type`,`".$colName."_id`) VALUES('$file_name','$file_size','$file_type',".$ins_id."); ";
         $desired_dir="uni_imgs";
         if(empty($errors)==true){
-            if(is_dir($desired_dir)==false){
+            if(is_dir($desired_dir)==false) {
                 mkdir("$desired_dir");      // Create directory if it does not exist
-                            }
-            if(is_dir("$desired_dir/".$file_name)==false){
+            }
+            if(is_dir("$desired_dir/".$file_name)==false) {
                 move_uploaded_file($file_tmp,"$desired_dir/".$file_name);
-            }else{									// rename the file if another one exist
+            } else {									// rename the file if another one exist
                 $new_dir="$desired_dir/".$file_name.time();
-                 rename($file_tmp,$new_dir) ;				
+                rename($file_tmp,$new_dir) ;				
             }
 		mysqli_query($link,$query);
         $upload_status = true;		
-        }else{
-                $upload_status = false;
-                print_r($errors);
+        } else {
+            $upload_status = false;
+            print_r($errors);
         }
     }
-	if(empty($error)){
+	if(empty($error)) {
 		echo "Success";
         return $upload_status;
 	}
 }
 ?>
-
-
-

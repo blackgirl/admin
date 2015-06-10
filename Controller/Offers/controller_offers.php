@@ -12,8 +12,11 @@ class Controller_Offers {
     function deleteOffers($idsArray){
         return offersRepository::getInstance()->deleteOffers($idsArray);
     }
-    function addOffer($title,$link='',$desc){
-        $newOffer = new Model_Offer($title,$desc,$link);
+    function addOffer($title,$link,$desc,$estim){
+        $total = 0;
+        for($i = 0; $i<count($estim); $i++) $total = $total + ($estim['hours']*$estim['cost']);
+            var_dump($estim);
+        $newOffer = new Model_Offer($title,$link,$desc,$estim,$total);
         return offersRepository::getInstance()->addOffer($newOffer);
     }
     function getLastId() {

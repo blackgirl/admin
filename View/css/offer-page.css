@@ -3,9 +3,11 @@ body, html {
 	/*height:100%;*/
 	margin:0;
 	padding:0;
-	/*overflow:scroll !important;*/
+	overflow:scroll !important;
 }
-
+.body-padding {
+	padding-bottom: 30px;
+}
 a {
   color:#78818B;
   -webkit-transition: all 200ms ease-in; 

@@ -1,5 +1,5 @@
-<?php
 	<form action="index.php" method="post">
+<?php
         $this->GetButtonGroup('projects');
         				 
 	        for ($i = 0; $i < count($dataArray); $i++) {

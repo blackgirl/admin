@@ -1,4 +1,27 @@
+#AdminPage .body-padding {
+	padding-bottom: 30px;
+	font:13px/1.5 "Helvetica Neue",Arial,"Liberation Sans",FreeSans,sans-serif;
+	background-color:#f6f6f6;
+
+	line-height:1;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+#AdminPage ::selection {
+	background: beige;
+}
 #AdminPage form {
+	text-align: center;
+}
+#AdminPage .panel-title form {
+	float: right;
 	text-align: center;
 }
 
@@ -6,7 +29,18 @@
 	padding: 10px 10px;
 	margin: 15px 5px 0px 0px;
 	font-size: 16px;
-	color: slategrey;
+	color: #ccc;
+	font-weight: 200;
+}
+
+#AdminPage .panel-title .btn, #AdminPage .panel-title .btn-sm {
+	padding: 0;
+	margin: 0;
+	margin-right: 15px;
+	color: #ccc;
+}
+#AdminPage .panel-title .btn:hover, #AdminPage .panel-title .btn-sm:hover {
+	color: #222;
 }
 #AdminPage .btn-group-sm>.btn:first-child, .btn-sm:first-child {
 	margin-left: 15px;
@@ -87,7 +121,8 @@
 	height:30px;
 	background: none;
 	opacity: 1;
-	color: #ccc;
+	/*color: #ccc;*/
+	color: rgb(32, 127, 202);
 	background: rgba(255,255,255,.5);
 }
 #AdminPage .panel-group .flex-direction-nav a:hover {
@@ -114,14 +149,17 @@
 	font-size: 16px;
 }
 .glyphicon.glyphicon-unchecked:hover:before,
-.glyphicon.glyphicon-unchecked:checked + a,
 .glyphicon.glyphicon-unchecked + a:hover,
-.glyphicon.glyphicon-unchecked:checked:before {
+.glyphicon.glyphicon-unchecked:checked + a,
+.glyphicon.glyphicon-unchecked:checked:before,
+.glyphicon.glyphicon-unchecked:checked ~ form .fa {
 	color: seagreen;
 }
+	
 .glyphicon.glyphicon-unchecked:hover {
 	cursor: pointer;
 }
+
 .glyphicon.glyphicon-unchecked:checked:before {
    content: "\e013";
    font-family: 'Glyphicons Halflings';
@@ -139,9 +177,19 @@ input[type=checkbox].glyphicon{
 	border-color: #ebebeb;
 	border-top: 1px solid transparent;
 }
+#AdminPage .panel-default.nda .fa-eye-slash {
+	color:lightcoral;
+	font-weight: 600;
+}
 #AdminPage .panel-heading {
 	text-align: left;
 	background: white;
+}
+#AdminPage .panel-default .panel-heading strong {
+	display: none;
+}
+#AdminPage .panel-default.nda .panel-heading strong {
+	display:inline-block;color: lightcoral;font-size: 24px;
 }
 #AdminPage .panel-title>a {
 	margin-left: 10px;
@@ -157,10 +205,70 @@ input[type=checkbox].glyphicon{
 	margin: 0px;
 }
 #AdminPage .panel-body h5.col-md-8 {
-	font-size: 18px;
+	font-size: 24px;
 	margin-bottom: 20px;
 	color: black;
+	background: none;
 }
+#AdminPage .offer-content p {font-size: 16px;color:#333;}
+#AdminPage .offer-content h5 {font-size: 16px;margin-bottom: 5px;color:#999;}
+#AdminPage .offer-content > div {
+	margin-bottom: 25px;
+	float:left;
+	width:100%;
+}
+
+#AdminPage .offer-title .fa {
+	margin-left: 15px;
+	font-size: 16px;
+	color: #666
+}
+#AdminPage .project-title a,
+#AdminPage .offer-title a {
+	color: rgba(95, 165, 208, .8);
+	font-style: italic;
+	font-size: 15px;
+	margin-left: 7px;
+}
+#AdminPage .offer-task-list ul {
+	-webkit-padding-start: 0;
+	padding: 15px;
+	border: 1px dotted #ccc;
+	text-align: center;
+}
+#AdminPage .offer-task-list ul>li {margin: 10px 0;}
+#AdminPage .img-list span {
+	margin: 0 5px 5px 0;
+}
+#AdminPage .offer-task-list ul>li .o-task {font-weight:200;text-align: left;padding-right: 50%;}
+#AdminPage .offer-task-list ul>li .o-num {font-weight:600;padding: 0 15px;}
+#AdminPage .project-title a:hover,
+#AdminPage .offer-title a:hover {
+	color: rgba(95, 165, 208, 1);
+	border-bottom: 1px dotted rgba(95, 165, 208, 1);
+}
+#AdminPage .estimation .form-group {
+	padding: 0;
+}
+#AdminPage .estimation-table-row {display: table-row; padding:0;}
+/*#AdminPage .estimation-table-row {display: table-row; padding:0;}*/
+/*#AdminPage .estimation-table-row {display: table-row; padding:0;}*/
+#AdminPage .estimation-table-row .form-group {display: table-cell;}
+#AdminPage .estimation-table-row .form-group input {width: 100%;}
+#AdminPage .estimation .form-group #esti-task {border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
+#AdminPage .estimation .form-group #esti-hrs {border-radius: 0px;}
+#AdminPage .estimation .form-group #esti-cost {border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
+#AdminPage .estimation-table-row + .estimation-table-row input {border-top-color: transparent;border-top-left-radius: 0px;border-top-right-radius: 0px;}
+#AdminPage .estimation .btn-default {border-color:transparent;}
+#AdminPage .estimation .total-placeholder {
+	font-size:24px;
+	color:#222;
+	font-weight: 600;
+	padding: 0;
+	border-color:transparent;
+	text-align: right;
+	}
+#AdminPage .panel-body .btn.tag.Media {margin-top: 0;}
 #AdminPage .panel-body .btn.tag:hover {
 	text-decoration: line-through;
 }
@@ -172,15 +280,49 @@ input[type=checkbox].glyphicon{
 #AdminPage .panel-group.add-new-project .form-group.keyftrs input {
 	margin-top:10px;
 }
-#AdminPage .panel-group.add-new-offer #btn-add-line,
+#AdminPage #collapseTechnology,
+#AdminPage #collapseExpertises {
+	width:50%;
+	text-align: left;
+	float:left;
+}
+#AdminPage #collapseTechnology select[multiple],
+#AdminPage #collapseExpertises select[multiple] {
+	height: 250px;
+}
+#AdminPage #collapseExpertises select[multiple] option:hover,
+#AdminPage #collapseTechnology select[multiple] option:hover,
+#AdminPage #collapseExpertises select[multiple] option[selected],
+#AdminPage #collapseTechnology select[multiple] option[selected],
+#AdminPage #collapseExpertises select[multiple] option:focus,
+#AdminPage #collapseTechnology select[multiple] option:focus,
+#AdminPage #collapseExpertises select[multiple] option:active,
+#AdminPage #collapseTechnology select[multiple] option:active,
+#AdminPage #collapseExpertises select[multiple] option:checked,
+#AdminPage #collapseTechnology select[multiple] option:checked {
+  background: beige;
+}
+#AdminPage .panel-group.add-new-offer #btn-add-task,
 #AdminPage .panel-group.add-new-project #btn-add-line {
 	margin:0;
 }
-#AdminPage .panel-group.add-new-offer #btn-add-line:hover,
+#AdminPage .panel-group.add-new-offer #btn-add-task:hover,
+#AdminPage .panel-group.add-new-offer #btn-file:hover,
+#AdminPage .estimation #calculate:hover,
 #AdminPage .panel-group.add-new-project #btn-add-line:hover {
 	color: lightseagreen;
+	background: transparent;
 }
-
+#AdminPage .estimation #calculate {
+	padding-top:0;
+}
+#AdminPage .estimation hr {
+	width:100%;
+	padding: 0 0 5px 0;
+	height:1px;
+	border: none;
+	border-bottom: 1px dashed #eee;
+}
 #AdminPage blockquote {
 	border-color: seagreen;
 }
@@ -220,6 +362,14 @@ input[type=checkbox].glyphicon{
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
+	background: none;
+}
+#collapseAdd .btn-file:hover {
+	background: lightseagreen;
+	cursor: pointer;
+	border: 1px solid #fff;
+	color: #fff;
+
 }
 
 #collapseAdd input[type=file] {
@@ -233,7 +383,7 @@ input[type=checkbox].glyphicon{
 	filter: alpha(opacity=0);
 	opacity: 0;
 	background: red;
-	cursor: inherit;
+	cursor: pointer;
 	display: block;
 }
 #collapseAdd input[readonly] {
@@ -242,7 +392,7 @@ input[type=checkbox].glyphicon{
 }
 #collapseAdd .btn-success:hover {
 	background-color: rgb(27, 148, 142);;
-	border:1px solid rgb(27, 148, 142);;
+	border: 1px solid rgb(27, 148, 142);;
 }
 #collapseAdd h4.panel-title {
 	font-size: 20px;
@@ -275,3 +425,5 @@ form.col-md-4.dropzone.dz-clickable {
 .dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete div:not(.dz-image) {
 	display:none;
 }
+footer {position: fixed;bottom:0;}
+footer, .after-footer, .after-footer p {padding:0;margin:0;}

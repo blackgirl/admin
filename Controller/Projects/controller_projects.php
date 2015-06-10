@@ -12,12 +12,15 @@ class Controller_Projects {
     function deleteProjects($idsArray){
         return projectsRepository::getInstance()->deleteProjects($idsArray);
     }
-    function addProject($title,$link,$desc,$keyftrs){
-        $newProject = new model_project($title,$desc,implode('|',$keyftrs));
+    function addProject($title,$link,$desc,$keyftrs,$tech,$exp){
+        $newProject = new model_project($title,$desc,implode('|',$keyftrs),[],$exp,$tech,'',$link);
         return projectsRepository::getInstance()->addProject($newProject);
     }
     function getLastId() {
         return projectsRepository::getInstance()->getLastId();
+    }
+    function getTechnologies() {
+        return projectsRepository::getInstance()->getTechnologies();
     }
     function editProject($project){
         $changedProject = new model_project($project->title);

@@ -18,9 +18,8 @@ class projectsRepository {
 		$query = mysqli_query($this->link,"SELECT * FROM uni_projects");
 		$arr = array();
 		require_once('model/projects/model_project.php');
-
 		while($row = mysqli_fetch_array($query)){
-			array_push($arr, new Model_Project($row['title'], $row['description'], $row['keyftrs'],$this->getProjectImgs($row['id']),$this->getProjectExpertises(explode(",", $row['expertises'])), $this->getProjectTecnologies(explode(",", $row['technologies'])), $row['id'],$row['link']));
+			array_push($arr, new Model_Project($row['title'], $row['description'], $row['keyftrs'],$this->getProjectImgs($row['id']),explode(",", $row['expertises']), explode(",", $row['technologies']), $row['id'],$row['link'],$row['nda']));
 		}
 		return $arr;
 	}
@@ -30,32 +29,56 @@ class projectsRepository {
 		while($imgs = mysqli_fetch_array($query)) {
 		     $result[] = $imgs['file_name'];
 		}
+
 		return $result;
 	}
-	function getProjectTecnologies($idsArray) {
-		if(isset($idsArray)) {
-			$rqvst = "SELECT * FROM uni_technologies WHERE id=".implode(" OR id=", $idsArray);
-			$query = mysqli_query($this->link, $rqvst);
-			$result = [];
-			if($query)
-				while($tech = mysqli_fetch_array($query)) {
-				     array_push($result,$tech);
-				}
-			return $result;
+	function getTechnologies() {
+		$query = '';
+		$query = mysqli_query($this->link,"SELECT * FROM uni_technologies");
+		$arr = array();
+		while($row = mysqli_fetch_array($query)){
+			array_push($arr, $row['text']);
+			// array_push($arr, new Model_Project($row['title'], $row['description'], $row['keyftrs'],$this->getProjectImgs($row['id']),$this->getProjectExpertises(explode(",", $row['expertises'])), $this->getProjectTecnologies(explode(",", $row['technologies'])), $row['id'],$row['link']));
 		}
+		return $arr;
 	}
-	function getProjectExpertises($idsArray) {
-		if(isset($idsArray)) {
-			$rqvst = "SELECT * FROM uni_expertises WHERE id=".implode(" OR id=", $idsArray);
-			$query = mysqli_query($this->link, $rqvst);
-			$result = [];
-			if($query)
-				while($exp = mysqli_fetch_array($query)) {
-				    array_push($result,$exp);
-				}
-			return $result;
-		}
-	}
+	// function getProjectTecnologies($tech) {
+	// 	if(isset($tech) && count($tech) != 0) {
+	// 		$rqvst = "SELECT `text` FROM `uni_technologies` WHERE `value`=".implode(" OR `value`=",$tech);
+	//  		$query = mysqli_query($this->link, $rqvst);
+	//  		// print_r($rqvst);
+	// 		$result = [];
+ // 			if($query)
+ // 				while($t = mysqli_fetch_row($query)) {
+ // 					// print_r($t);
+	// 		     	array_push($result,$t);
+	// 		}
+	// 		print_r($result);
+	// 		return $result;
+	// 	}
+	// }
+		// if(isset($idsArray)) {
+		// 	$rqvst = "SELECT * FROM uni_technologies WHERE id=".implode(" OR id=", $idsArray);
+		// 	$query = mysqli_query($this->link, $rqvst);
+		// 	$result = [];
+		// 	if($query)
+		// 		while($tech = mysqli_fetch_array($query)) {
+		// 		     array_push($result,$tech);
+		// 		}
+		// 	return $result;
+		// }
+	// function getProjectExpertises($idsArray) {
+	// 	if(isset($idsArray)) {
+	// 		$rqvst = "SELECT * FROM uni_expertises WHERE id=".implode(" OR id=", $idsArray);
+	// 		$query = mysqli_query($this->link, $rqvst);
+	// 		$result = [];
+	// 		if($query)
+	// 			while($exp = mysqli_fetch_array($query)) {
+	// 			    array_push($result,$exp);
+	// 			}
+	// 		return $result;
+	// 	}
+	// }
 	
 	// function hideProjects($id) {
 	// 	// Wrap project with tag after action complete <s>This line of text is meant to be treated as no longer accurate.</s>
@@ -75,17 +98,21 @@ class projectsRepository {
 		$qweryDelete = '';
 		$qweryDelete = "DELETE FROM uni_projects WHERE id=".implode(' OR id=', $idsToDelete);
 		mysqli_query($this->link,$qweryDelete);
-		return mysqli_affected_rows($this->link);
+		echo mysqli_affected_rows($this->link);
 	}
 
-	function addProject($project) {
-		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs) 
-	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."')");
+	function addProject($p) {
+		$query = '';
+		$project = $p;
+		$query = mysqli_query($this->link,"INSERT INTO uni_projects (title,description,link,keyftrs,expertises,technologies) 
+	 					VALUES ('".$project->title."','".$project->description."', '".$project->link."','".$project->keyftrs."','".$project->expertises."','".$project->technologies."')");
 		return $query;
 	}
 	function getLastId() {
 		return mysqli_insert_id($this->link);
 	}
+
+	
 	// function getProject($id) {
 	// 	return mysqli_query($this->link,"SELECT * FROM `uni_projects` WHERE id='".$id.'"');
 	// }

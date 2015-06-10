@@ -1,40 +1,34 @@
-<?php
+<?php 
+if(isset($_GET['route']) && $_GET['route'] == 'auth') echo "<script>window.location = 'http://localhost:8888/cmstest/index.php?route=projects'</script>";
 require_once('controller/projects/controller_projects.php');
 require_once('controller/offers/controller_offers.php');
+
 require_once('model/projects/data_formatter.php');
-require_once('model/offers/offer_data_formatter.php');
+// require_once('model/offers/offers_data_formatter.php');
 
-        
-        $df; $array = [];
-        
-        if(isset($_GET['route'])) {
-            $route = $_GET['route'];
-
-            switch($route){
-                case "offers": {
-                    // include ('view/includes/offers_top_button_panel.php');
-                    include ('view/includes/section_add_edit_offer.php');
-                    $oc = new Controller_Offers();
-                    $df = new Offer_Data_Formatter();
-                    $array = $oc->allOffers();
-                    $view = $df->GetFormTable($array);
-                    echo $view;
-                } break;
-                default: {
-                    // include ('view/includes/form_top_button_panel.php');
-                    include ('view/includes/section_add_edit_project.php');
-                    $uc = new Controller_Projects();
-                    $df = new Data_Formatter();
-                    $array = $uc->allProjects();
-                    $view = $df->GetFormTable($array);
-                    echo $view;
-                } break;
-            }
-}
-        
+    $df; $array = [];
     
+    if(isset($_GET['route'])) {
+        $type = ucfirst($_GET['route']);
 
-// session_start();
+        include ('view/includes/section_add_edit_'.lcfirst($type).'.php');
+        $controller_name = 'Controller_'.$type;
+        $form_data_name = $type.'_Data_Formatter';
+        $action_name = 'all'.$type;
+        $array = new $controller_name;
+        $array = $array->$action_name();
+        if(lcfirst($type) == 'projects') {
+            $fd = new $form_data_name;
+            echo $fd->GetFormTable($array);
+        } else 
+            include ('view/'.lcfirst($type).'_page_view.php');
+
+
+
+}
+?>
+<!-- '".$_SERVER['HTTP_HOST'].$_SERVER["PHP_SELF"]."?route=projects'</script>"; -->
+<!-- // session_start();
 // if (isset($_SESSION['name']) and isset($_SESSION['id'])){
 // 	if($_SESSION['name'] == 'admin'){
 //         echo "<h1 style='text-align: center;'>HELLO, ".$_SESSION['name']."!!!!</h1>";
@@ -58,5 +52,4 @@ require_once('model/offers/offer_data_formatter.php');
 // </body>
 // </html>
 // _END;
-// }}
- ?>
+// }} -->
