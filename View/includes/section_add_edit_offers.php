@@ -9,17 +9,20 @@
 					<section class="col-md-8 col-md-offset-2">
 						<div class="form-group">
 						    <label for="new-offer-title" class="">Offer title</label>
-						    <input type="text" class="form-control new-offer-title" name="new-offer-title"placeholder="Add Title"/>
-						    <label for="new-offer-url" class="">PDF link</label>
-						    <input type="text" class="form-control new-offer-url" name="new-offer-url"placeholder="http://"/>
+						    <input type="text" class="form-control new-offer-title" name="new-offer-title" data-minlength="3" placeholder="Add Title" required/>
+						    <div class="help-block with-errors"></div>
+						    <label for="new-offer-url" class="" >PDF link</label>
+						    <input type="url" class="form-control new-offer-url" name="new-offer-url" placeholder="http://" readonly/>
+						    <div class="help-block with-errors"></div>
 						</div>
 						                
 					    <div class='form-group'>
 					    	<label class="" for="new-offer-description">Description:</label>
-							<textarea name="new-offer-description" class=" form-control new-offer-description"  rows="5" placeholder="Add Description"></textarea>
+							<textarea name="new-offer-description" class=" form-control new-offer-description" data-minlength="10" rows="5" placeholder="Add Description" required></textarea>
+							<div class="help-block with-errors"></div>
 					    </div>
 					    <div class='form-group'>
-					    	<label class="control-label">Cases:</label>
+					    	<label class="control-label hide">Cases:</label>
 							<div class=""></div>
 					    </div>
 					    <div class='form-group'>
@@ -30,26 +33,23 @@
 				        	<div class="input-group col-md-12">
 				        		<span class="btn btn-default btn-file">
 			                        Browse images… 
-							    	<input type="file" name="files[]" multiple class="form-control"/>
+							    	<input type="file" name="files[]" multiple class="form-control"accept="image/*"/>
 							    </span><div class="image_loaded"></div>
 					    	</div>
 				    	</div>
 					    <?php include ('view/includes/estimate_table_form.php'); ?>
-				<!-- Dropzone -->
-				<!-- <form action="index.php?route=projects" class="col-md-4 dropzone" id="myDropzone"> -->
-			   <!--  <div class="input-group">
-	                <span class="input-group-btn">
-	                    <span class="btn btn-default btn-file">
-	                        Browse… <input type="file" multiple>
-	                    </span>
-	                </span>
-	                <input type="text" class="form-control" readonly="">
-	            </div> -->
-						<button name="add-new-offer" id="submitForm" class="btn btn-success col-md-2 col-md-offset-10" type="submit">Add New</button>
+						<button name="add-new-offer" id="submitForm" class="btn btn-success col-md-2 col-md-offset-10" type="submit">Add New <span class="fa fa-long-arrow-right"></span></button>
 					</section>
 				</form>
-				<!-- <form action="index.php?route=projects" method="post" class="col-md-4 dropzone" id="myDropzone"></form> -->
-				<script src="view/js/dropzone_file.js"></script>		
+				<!-- <script src="view/js/dropzone_file.js"></script>		 -->
+				<script>
+				// $('#offers').validator();
+				// $('#form').validator().on('submit', function (e) {
+				//   if (e.isDefaultPrevented()) {
+				//   } else {
+				//   }
+				// })
+				</script>		
 		    </div>
 		</div>
 	</div>

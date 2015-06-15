@@ -6,15 +6,17 @@
         public $description;
         public $estimation;
         public $total;
+        public $images;
 
-        // estimation = [{'task': task, 'hrs': hrs, 'cost': cost}];
-        function __construct($title = '', $link = '', $description = '', $estimation = '', $total = 0, $id = '') {
+        // estimation = [{'task': task, 'hrs': hrs, 'cost': cost},{}];
+        function __construct($title = '', $link = '', $description = '', $estimation = [], $id = '',$images = []) {
             $this->id = $id;
             $this->title = $title;
             $this->link = $link;
             $this->description = $description;
             $this->estimation = $estimation;
-            $this->total = $total;
+            $this->images = $images;
+            // $this->total = $total;
         }
     }
 ?>

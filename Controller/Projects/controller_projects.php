@@ -6,6 +6,7 @@ class Controller_Projects {
     function __construct() {
 
     }
+    
     function allProjects() {
         return projectsRepository::getInstance()->allProjects();
     }
@@ -19,6 +20,9 @@ class Controller_Projects {
     function getLastId() {
         return projectsRepository::getInstance()->getLastId();
     }
+    function getOwnerId() {
+        return projectsRepository::getInstance()->getId();
+    }
     function getTechnologies() {
         return projectsRepository::getInstance()->getTechnologies();
     }
@@ -26,34 +30,8 @@ class Controller_Projects {
         $changedProject = new model_project($project->title);
         return projectsRepository::getInstance()->editProject($changedProject);
     }
-    function hideProject($id){
+    function hideProject($id) {
         return projectsRepository::getInstance()->hideProject($id);
     }
-    
-    // function allBooks() {
-    //     return projectsRepository::getInstance()->allBooks();
-    // }
-    // function allBooksPure() {
-    //     return projectsRepository::getInstance()->allBooksPure();
-    // }
-    // function allBooksRich() {
-    //     return projectsRepository::getInstance()->allBooksRich();
-    // }
-    // function takeBook($id, $value) {
-    //     return projectsRepository::getInstance()->takeBook($id, $value);
-    // }
-    // function removeBook($id, $value) {
-    //     return projectsRepository::getInstance()->removeBook($id, $value);
-    // }
-    // function myBooks($id) {
-    //     return projectsRepository::getInstance()->myBooks($id);
-    // }
-    // function newBook($author, $title, $price, $year, $about) {
-    //     $bk = new Model_Project($author, $title, $price, $year, $about);
-    //     return projectsRepository::getInstance()->newBook($bk);
-    // }
-    // function allAuthors() {
-    //     return projectsRepository::getInstance()->allAuthors();
-    // }
 }
 ?>

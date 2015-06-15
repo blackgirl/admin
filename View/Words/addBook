@@ -1,8 +1,0 @@
-<form style="margin:0 auto; width:250px" action="index.php" method="post">
-<input name="book_author" placeholder="author" type="text" style="margin:0 auto; width:200px">
-<input name="book_title" placeholder="title" type="text" style="margin:0 auto; width:200px">
-<input name="book_year" placeholder="year" type="text" style="margin:0 auto; width:200px">
-<input name="book_price" placeholder="price" type="text" style="margin:0 auto; width:200px">
-<input name="book_about" placeholder="about" type="text" style="margin:0 auto; width:200px">
-<input name="newBook" type="submit" value="Add New Book" style="margin:0 auto; width:200px">
-</form>

@@ -2907,20 +2907,7 @@ li.content {
   padding-bottom:6px !important;
 }
 
-#OfferPage blockquote{
-  font-style:italic;
-  line-height:24px;
-  padding:0px 0px 0px 20px !important;
-}
-#AdminPage blockquote {
-  padding: 0px 10px;
-  margin: 0 0 20px;
-  font-size: 12px;
-  border-left: 5px solid #52eea2;
-  color: slategrey;
-  font-family: 'Sourse Sans',sans-serif;
-  line-height: 1.2;
-}
+
 
 .container.user-type-nav,
 .user-type-nav ul,

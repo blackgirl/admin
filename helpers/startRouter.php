@@ -1,9 +1,10 @@
 <?php
-    if(isset($_GET['route'])) { // Authorization
+    require_once('controller/users/userController.php');
+
+    if(isset($_GET['route'])) {
         $route = $_GET['route'];
         switch($route){
             case "auth": {
-                // echo "Came into case:AUTH of index.php Router";
                 if(isset($_POST['login']) && $_POST['login']!="" && $_POST['password']!="") { 
                     $uc = new userController();
                     if($array = $uc->auth($_POST['login'], $_POST['password'])) {
@@ -15,21 +16,18 @@
                     } else include('view/users/auth.php');
                 }
             } break;
-
             case "projects": 
             case "offers": {
                 ($_SESSION['id']!="" && $_SESSION['name']!='')?include('view/users/adminpage.php'):include('view/users/auth.php');
             } break;
-
             case "exit": {
                 if(isset($_SESSION['id'],$_SESSION['name'],$_SESSION['password']))
                     unset($_SESSION['name'],$_SESSION['id'],$_SESSION['password']);
                 include('view/users/auth.php');
             } break;
-            case "www": {
-                ($_SESSION['id']!="" && $_SESSION['name']!='')?include('site.php'):include('view/users/auth.php');
-            } break;
-
+            // case "www": {
+            //     ($_SESSION['id']!="" && $_SESSION['name']!='')?include('site.php'):include('view/users/auth.php');
+            // } break;
             default: if(!isset($_SESSION['name'])) include('view/users/auth.php');
         }
     }
@@ -52,6 +50,12 @@
                     $uc->$action_name($idsArray);
                 }
             } break;
+            case "hide": {
+                if(isset($_REQUEST['nda_id'])) {
+                    $id = $_REQUEST['nda_id'];
+                    $uc->hideProject($id);
+                }
+            } break;
             // case "add": {
             //     if(isset($_REQUEST['ids_array'])) {
             //         $action_name = ($type == 'projects')?'addProject':'addOffer';
@@ -69,26 +73,29 @@
     }
     if(isset($_POST['add-new-project'])) {
         $uc = new Controller_Projects();
-        $expertises;
-        $technologies;
+        $expertises=''; $technologies='';
         if(isset($_POST['expertises']) && is_array($_POST['expertises'])) $expertises = implode(',',$_POST['expertises']);
         if(isset($_POST['technologies']) && is_array($_POST['technologies'])) $technologies = implode(',',$_POST['technologies']);
         if($uc->addProject($_POST['new-project-title'],$_POST['new-project-url'], trim($_POST['new-project-description']),$_POST['new-project-feature'],$technologies,$expertises)) {
             require_once('helpers/uploader.php');
-            include 'view/includes/reloader.php';
-            }
+            include('view/includes/reloader.php');
+        }
     }
     if(isset($_POST['add-new-offer'])) {
-        $postEstimation = $_POST['estim'];
-        $estimation = ['task'=>'','hours'=>NULL,'cost'=>NULL];
-        foreach($postEstimation as $k) {
-            print_r( $k); echo '>>>' ; print_r($postEstimation[$k]);
-            // array_push($estimation, ['task'=>$k,'hours'=>$k['esti-hrs'],'cost'=>$k['esti-cost']]);
-        }
         $oc = new Controller_Offers();
-        if($oc->addOffer($_POST['new-offer-title'], trim($_POST['new-offer-description']),$_POST['new-offer-url'],$estimation)) {
-            require_once('helpers/uploader.php');
-            // include 'view/includes/reloader.php';
+        $estimationItem = []; $estimation = [];
+        $arr = $_POST['estim'];
+        while (list($k,$v)=each($arr)) {
+            if (is_array($v)) {
+                array_splice($arr,$k,1,$v);
+                next($arr);
+            }
         }
+        if(trim($_POST['new-offer-title']) && trim($_POST['new-offer-description']))
+            if($oc->addOffer($_POST['new-offer-title'],$_POST['new-offer-url'],trim($_POST['new-offer-description']),$arr)) {
+                require_once('helpers/uploader.php');
+                include('view/includes/reloader.php');
+            }
     }
+    
 ?>

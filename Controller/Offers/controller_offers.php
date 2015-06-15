@@ -12,12 +12,12 @@ class Controller_Offers {
     function deleteOffers($idsArray){
         return offersRepository::getInstance()->deleteOffers($idsArray);
     }
-    function addOffer($title,$link,$desc,$estim){
-        $total = 0;
-        for($i = 0; $i<count($estim); $i++) $total = $total + ($estim['hours']*$estim['cost']);
-            var_dump($estim);
-        $newOffer = new Model_Offer($title,$link,$desc,$estim,$total);
+    function addOffer($title,$link,$desc,$estim) {
+        $newOffer = new Model_Offer($title,$link,$desc,$estim);
         return offersRepository::getInstance()->addOffer($newOffer);
+    }
+    function getOwnerId() {
+        return offersRepository::getInstance()->getId();
     }
     function getLastId() {
         return offersRepository::getInstance()->getLastId();
@@ -28,6 +28,9 @@ class Controller_Offers {
     }
     function hideOffer($id){
         return offersRepository::getInstance()->hideOffer($id);
+    }
+    function addTask($task,$hrs,$cost,$total) {
+        $newOffer = new Model_Estimate($task,$hrs,$cost,$total);
     }
 }
 ?>

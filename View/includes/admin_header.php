@@ -7,10 +7,13 @@
           <!-- Menu -->
           <ul class="nav">
             <li class="to-projects">
-              <a href="/cmstest/index.php?route=projects" title="uniProjects Pages">Projects /</a></li>
+              <a href="/cmstest/index.php?route=projects" title="uniProjects Pages">Projects
+</a></li>
             <li class="to-offers">
-              <a href="/cmstest/index.php?route=offers" title="uniOffer Pages">Offers /</a></li> 
-            <li disabled ><a href="/cmstest/index.php?route=www" >Site /</a></li> 
+              <a href="/cmstest/index.php?route=offers" title="uniOffer Pages">Offers
+</a></li> 
+            <li  ><a disabled>Site</a></li> 
+            <!-- <li  ><a href="/cmstest/index.php?route=www" disabled>Site /</a></li>  -->
             <li><a href="/cmstest/index.php?route=exit" >Exit</a><span class="glyphicon glyphicon-log-out"></span></li> 
           </ul>
           <!-- Menu End -->                     

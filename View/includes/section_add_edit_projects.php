@@ -8,13 +8,10 @@
 	      <div class="panel-body">
 			<h4 class="panel-title text-center">Add New Project</h4>
 			<form action="index.php?route=projects" method="post" enctype="multipart/form-data" >
-			<!-- <form action="index.php?route=projects" method="post" enctype="multipart/form-data" class="dropzone" id="myDropzone"> -->
 				<section class="col-md-8 col-md-offset-2">
 				<div class="form-group">
 				    <label for="new-project-title" class="">Project title</label>
 				    <input type="text" class="form-control" name="new-project-title"placeholder="Add Title"/>
-				<!-- </div> -->
-				<!-- <div class="form-group col-md-6"> -->
 				    <label for="new-project-url"  class="">Site link</label>
 				    <input type="text" class="form-control" name="new-project-url" placeholder="http://"/>
 				</div>
@@ -45,50 +42,47 @@
         	<div class="input-group col-md-12">
         		<span class="btn btn-default btn-file">
                         Browse images… 
-			    	<input type="file" name="files[]" multiple class="form-control"/>
+			    	<input type="file" name="files[]" multiple class="form-control" accept="image/*"/>
 			    </span><div class="image_loaded"></div>
 
 	    	</div>
     	</div>
-			<button name="add-new-project" class="btn btn-success col-md-2 col-md-offset-10" type="submit">Add New</button>
-			</section>
-			<!-- </form> -->
-			</form>
-			<!-- <form action="index.php?route=projects" method="post" class="col-md-4 dropzone" id="myDropzone"> -->
-			<!-- </form> -->
-			
-			<script>
-			  // myDropzone is the configuration for the element that has an id attribute
-			  // with the value my-dropzone (or myDropzone)
-			  Dropzone.options.myDropzone = {
-				paramName: "file",
-			    init: function() {
-			      this.on("addedfile", function(file) {
-			        // Create the remove button
-			        var removeButton = Dropzone.createElement("<span class='glyphicon glyphicon-remove'></span>");
-			        // Capture the Dropzone instance as closure.
-			        var _this = this;
-			        // Listen to the click event
-			        removeButton.addEventListener("click", function(e) {
-			          // Make sure the button click doesn't submit the form:
-			          e.preventDefault();
-			          e.stopPropagation();
-			          // Remove the file preview.
-			          _this.removeFile(file);
-			          // If you want to the delete the file on the server as well,
-			          // you can do the AJAX request here.
-			        });
-			        // var a = file.previewElement.find('img');
-			        // console.log(file.previewTemplate.children[0].childNodes[0].attributes['src'].val());
-			        console.log(file.previewTemplate.children[0].childNodes[0].src);
-			        // console.log(a);
-			        // Add the button to the file preview element.
-			        file.previewElement.appendChild(removeButton);
-			      });
-			    }
-			  };
-		    </script>
-	      </div>
-		</div>
+		<button name="add-new-project" class="btn btn-success col-md-2 col-md-offset-10" type="submit">Add New <span class="fa fa-long-arrow-right"></span></button>
+	</section>
+</form>
+		
+		<script>
+		  // myDropzone is the configuration for the element that has an id attribute
+		  // with the value my-dropzone (or myDropzone)
+		  Dropzone.options.myDropzone = {
+			paramName: "file",
+		    init: function() {
+		      this.on("addedfile", function(file) {
+		        // Create the remove button
+		        var removeButton = Dropzone.createElement("<span class='glyphicon glyphicon-remove'></span>");
+		        // Capture the Dropzone instance as closure.
+		        var _this = this;
+		        // Listen to the click event
+		        removeButton.addEventListener("click", function(e) {
+		          // Make sure the button click doesn't submit the form:
+		          e.preventDefault();
+		          e.stopPropagation();
+		          // Remove the file preview.
+		          _this.removeFile(file);
+		          // If you want to the delete the file on the server as well,
+		          // you can do the AJAX request here.
+		        });
+		        // var a = file.previewElement.find('img');
+		        // console.log(file.previewTemplate.children[0].childNodes[0].attributes['src'].val());
+		        console.log(file.previewTemplate.children[0].childNodes[0].src);
+		        // console.log(a);
+		        // Add the button to the file preview element.
+		        file.previewElement.appendChild(removeButton);
+		      });
+		    }
+		  };
+	    </script>
+      </div>
 	</div>
+</div>
 </div>
