@@ -14,7 +14,6 @@
     <div class="form-group col-md-2">
       <label class="sr-only" for="esti-cost">Estimated Cost</label>
       <input type="text" pattern="[0-9]{3,}" name="estim[]['cost']" class="form-control esti-cost" id="esti-cost" placeholder="Estimated Cost" autocomplete="off"required>
-      
     </div>
   </div>
   <div class="estimation-actions col-md-12 clearfix">

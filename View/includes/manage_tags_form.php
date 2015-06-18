@@ -1,18 +1,12 @@
-<div class="bs-example">
-    <p>
-    	<button class="btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseTechnology" aria-expanded="false" aria-controls="collapseTechnology">
+<div class="form-group">
+    <p><button class="btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseTechnology" aria-expanded="false" aria-controls="collapseTechnology">
         Technologies <span class="fa fa-long-arrow-down"></span>
-      </button>
-      <button class="btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseExpertises" aria-expanded="false" aria-controls="collapseExpertises">
+    </button>
+    <button class="btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseExpertises" aria-expanded="false" aria-controls="collapseExpertises">
         Expertises <span class="fa fa-long-arrow-down"></span>
-      </button>
-    </p>
+    </button></p>
     <div class="collapse" id="collapseTechnology" aria-expanded="false" style="height: 0px;">
-      <!-- <div class="well">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </div> -->
-				
-      <div class="form-group">
+        <div class="form-group">
 			<label for="technologies">Technologies:</label>
 			<select multiple class="form-control technologies" name="technologies[]">
 		        <option data-value="hlo">Highload optimization</option>
@@ -63,13 +57,10 @@
 			</select>
 		</div>
     </div>
-     <div class="collapse" id="collapseExpertises" aria-expanded="false" style="height: 0px;">
-      <!-- <div class="well">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </div> -->
-      <div class="form-group">
-			<label for="expertises">Expertises:</label>
-			<select multiple class="form-control expertises" name="expertises[]">
+    <div class="collapse" id="collapseExpertises" aria-expanded="false" style="height: 0px;">
+    <div class="form-group">
+		<label for="expertises">Expertises:</label>
+		<select multiple class="form-control expertises" name="expertises[]">
 	          <option data-value="ecommerce">E-commerce</option>
 	          <option data-value="pm">Product Management</option>
 	          <option data-value="smarthouse">Smart House</option>

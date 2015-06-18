@@ -10,16 +10,14 @@
 						<div class="form-group">
 						    <label for="new-offer-title" class="">Offer title</label>
 						    <input type="text" class="form-control new-offer-title" name="new-offer-title" data-minlength="3" placeholder="Add Title" required/>
-						    <div class="help-block with-errors"></div>
-						    <label for="new-offer-url" class="" >PDF link</label>
-						    <input type="url" class="form-control new-offer-url" name="new-offer-url" placeholder="http://" readonly/>
-						    <div class="help-block with-errors"></div>
+						    
+						    <label for="new-offer-url" class="hide" >PDF link</label>
+						    <input type="url" class="form-control new-offer-url hide" name="new-offer-url" placeholder="http://" readonly/>
 						</div>
 						                
 					    <div class='form-group'>
 					    	<label class="" for="new-offer-description">Description:</label>
 							<textarea name="new-offer-description" class=" form-control new-offer-description" data-minlength="10" rows="5" placeholder="Add Description" required></textarea>
-							<div class="help-block with-errors"></div>
 					    </div>
 					    <div class='form-group'>
 					    	<label class="control-label hide">Cases:</label>

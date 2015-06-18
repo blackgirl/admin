@@ -22,6 +22,9 @@ class Controller_Offers {
     function getLastId() {
         return offersRepository::getInstance()->getLastId();
     }
+    function getOfferData($id) {
+        return offersRepository::getInstance()->getOfferData($id);
+    }
     function editOffer($offer){
         $changedOffer = new Model_Offer($offer->title);
         return offersRepository::getInstance()->editOffer($changedOffer);

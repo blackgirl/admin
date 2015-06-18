@@ -14,6 +14,13 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	vertical-align:baseline;
 	background:transparent;
 }
+.popover {max-width: 100%;}
+kbd {background-color: transparent;
+border-radius: 0px;
+box-shadow: none;
+font-weight: 400;
+}
+.kbd-text {background: #ddd;padding: 2px;border-color: transparent;}
 #AdminPage ::selection {
 	background: beige;
 }
@@ -72,7 +79,7 @@ input.has-warning {
 	border-color:#dd2500;
 }
 #AdminPage .btn-group-sm>.btn.btn-info, .btn-sm.btn-info,
-#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+#AdminPage .btn-group-sm>.btn.btn-info.d-abled, .btn-sm.btn-info.disabled {
 	background-color:#0083d0;
 	border-color:#0083d0;
 	opacity: 1;
@@ -196,7 +203,8 @@ input.has-warning {
 .glyphicon.glyphicon-unchecked + a:hover,
 .glyphicon.glyphicon-unchecked:checked + a,
 .glyphicon.glyphicon-unchecked:checked:before,
-.glyphicon.glyphicon-unchecked:checked ~ form .fa {
+.glyphicon.glyphicon-unchecked:checked ~ form .fa,
+.glyphicon.glyphicon-unchecked:checked ~ form #btn-admin-link {
 	color: seagreen;
 }
 	
@@ -269,8 +277,8 @@ input[type=checkbox].glyphicon{
 	margin-bottom: 20px;
 	background: none;
 	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	overflow: visible;
+	/*text-overflow: ellipsis;*/
 }
 #AdminPage .panel-body p,
 #AdminPage blockquote li {font-size: 14px;letter-spacing: .2px;}
@@ -286,11 +294,16 @@ input[type=checkbox].glyphicon{
 	font-size: 16px;
 	color: #666
 }
-#AdminPage #offers .fa-arrows-alt {
-	font-size: 12px;
-	padding: 3px 0;
+#AdminPage .offer-title-link .fa {
+	 margin-left: 0px; 
+	font-size: 14px;
+	color: rgba(95, 165, 208, .8);
 }
-
+#AdminPage #offers .fa-link {
+	font-size: 12px;
+	padding: 8px 0;
+}
+#AdminPage .popover-content a,
 #AdminPage .project-title a,
 #AdminPage .offer-title a {
 	color: rgba(95, 165, 208, .8);
@@ -318,14 +331,29 @@ input[type=checkbox].glyphicon{
 #AdminPage .offer-task-list ul>li {margin: 10px 0;}
 #AdminPage .offer-content .li-imgs,
 #AdminPage .img-list span {
-	/*margin: 0 0px 5px 0;*/
 	padding: 5px;
 }
+
+#AdminPage .project-imgs {padding-right:0;}
+#AdminPage .img-list .li-imgs,
 #AdminPage .offer-content .li-imgs {
-	max-width: 25%;
+	width: 200px;
+	height:200px;
+	overflow: hidden;
+	margin: 10px;
+	margin-left: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	border: 1px dotted #ccc;
 }
-#AdminPage .offer-task-list ul>li .o-task {font-weight:200;text-align: left;padding-right: 50%;}
+#AdminPage .img-list .li-imgs img,
+#AdminPage .offer-content .li-imgs img {
+	max-width:200%;
+	max-height:200%;
+}
+#AdminPage .offer-task-list ul>li .o-task {font-weight:200;text-align: left;}
 #AdminPage .offer-task-list ul>li .o-num {font-size:14px;padding: 0 15px;}
+#AdminPage .popover-content a:hover,
 #AdminPage .project-title a:hover,
 #AdminPage .offer-title a:hover {
 	color: rgba(95, 165, 208, 1);
@@ -397,11 +425,12 @@ input[type=checkbox].glyphicon{
 #AdminPage .panel-group.add-new-project #btn-add-line {
 	margin:0;
 }
-#AdminPage .panel-group.add-new-offer #btn-add-task:hover,
+#AdminPage .panel-group.add-new-offer #btn-add-task {color:lightgray;}
+#AdminPage .panel-group.add-new-offer #btn-add-task:hover {background: transparent;color: tomato;}
 #AdminPage .panel-group.add-new-offer #btn-file:hover,
 #AdminPage .estimation #calculate:hover,
 #AdminPage .panel-group.add-new-project #btn-add-line:hover {
-	color: deepskyblue;
+	color: steelblue;
 	background: transparent;
 }
 #AdminPage .estimation #calculate {
@@ -455,7 +484,7 @@ input[type=checkbox].glyphicon{
 }
 
 #collapseAdd .image_loaded {
-	float:left;width:80%;
+	float:left;width:70%;
 	text-align: left;
 	padding:7px 15px;
 	color:grey;
@@ -562,4 +591,76 @@ div.fancybox-inner {
 	width: 50%;
 	height: auto;
 	margin: 0 auto;
+}
+
+#dummy {
+    display: none;
+}
+
+.fancybox-inner iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* LoginPage */
+html {height:100%;border: 20px solid white;}
+body:not(#AdminPage) {width: 100%;height: 100%;background: whitesmoke;}
+#LoginPage .container {
+	position:absolute;
+	top:0;
+	z-index:9;
+	padding:0;
+	  width: 100%;
+	  height: 100%;
+	  background: #fff;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#ccc', GradientType=0);
+	  background: -webkit-linear-gradient(to bottom, #fff 50%, #ccc) !important;
+	  background: -moz-linear-gradient(to bottom, #fff 50%, #ccc) !important;
+	  background: -ms-linear-gradient(to bottom, #fff 50%, #ccc) !important;
+	  background: -o-linear-gradient(to bottom, #fff 50%, #ccc) !important;
+	  background: linear-gradient(to bottom, #fff 50%, #ccc) !important;
+}
+div.well{
+  height: 250px;
+}
+#LoginPage .form-wrapper {width: 83.33333333%;float: none;}
+#LoginPage .Absolute-Center.is-Responsive {
+  width: 50%; 
+  height: 50%;
+  max-width: 400px;
+  padding: 40px;
+  margin-top: 12.5%;
+}
+#LoginPage .Absolute-Center {
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height:100%;
+}
+#LoginPage .btn-login {
+	color: #5cb85c;
+	background-color: transparent;
+	border-color: transparent;
+	width: auto;
+}
+#LoginPage .btn-login:hover {
+	color: white;
+	background-color: #5cb85c;
+}
+#LoginPage input {border: 1px solid transparent;}
+#LoginPage .input-group-addon {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: lightblue;
+}
+
+
+
+
+/* 404 */
+.center.dude-text {
+	font-size:150px;
+	letter-spacing:-5px;
+	font-weight: 800;
 }

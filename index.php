@@ -20,16 +20,14 @@ ini_set('display_errors', 1);
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="view/css/bootstrap-override.css" rel="stylesheet">
         <link rel="stylesheet" href="view/css/style.css">
         <link rel="stylesheet" href="view/css/offer-page.css">
         <link rel="stylesheet" href="view/css/jquery.fancybox.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="view/css/admin_page.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese' rel='stylesheet' type='text/css'>
     </head>
     <body class="body-padding" id="AdminPage">
-        <?php
-            include 'view/includes/admin_header.php';
-            require_once('helpers/startRouter.php');
-            include 'view/includes/admin_footer.php';
-        ?>
+        <?php require_once('helpers/startRouter.php'); ?>
     </body>
 </html>

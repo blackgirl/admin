@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Offer Personal Page</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+	<div id="PersonalOffer"></div>
+</body>
+	<script>
+		$(document).ready(function() {
+			url = document.location.href;
+			var fileEnd = url.indexOf('html');
+			var newUrl = url.substr(0,fileEnd+4);
+			var data = url.substr(fileEnd+5,url.length);
+			if(newUrl.length < url.length) {
+				if(data.indexOf('i')>0) {
+					var mail_text = ('Offer page to project with id='+data+' has been visited by X');
+					$.ajax({
+				        type: "POST",
+				        url: "index.php?route=mail_to",  
+				        data: {'mail_text':mail_text},
+				        success: function(html) {
+							$.ajax({
+						        type: "POST",
+						        url: "index.php?route=offer_to&offer_id="+data,  
+						        data: {'offer_id':data},
+						        success: function(html) {
+									$('#PersonalOffer').html(html);
+						        }
+						    });
+				        }
+				    });
+				} else {
+					$.ajax({
+				        type: "POST",
+				        url: "index.php?route=offer_to&offer_id="+data,  
+				        data: {'offer_id':data},
+				        success: function(html) {
+							$('#PersonalOffer').html(html);
+				        }
+				    });
+				}
+		    }
+		    return false;
+		});
+	</script>
+</html>

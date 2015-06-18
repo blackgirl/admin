@@ -101,5 +101,17 @@ class offersRepository {
 	function getLastId() {
 		return mysqli_insert_id($this->link);
 	}
+	function getOfferData($id) {
+		$query = mysqli_query($this->link,"SELECT * FROM uni_offers WHERE id = '".$id."'");
+		$arr = [];
+		if($query) {
+			require_once('model/offers/model_offer.php');
+			while($row = mysqli_fetch_array($query)){
+				if(isset($row['id']) && $row['estimation'] != NULL) $row['estimation'] = $this->getEstimation($row['id']);
+				$arr = new Model_Offer($row['title'],$row['link'],$row['description'], $row['estimation'], $row['id'],$this->getOfferImgs($row['id']));
+			}
+		}
+		return $arr;
+	}
 }
 ?>

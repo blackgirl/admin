@@ -10,12 +10,11 @@ require_once('controller/offers/controller_offers.php');
 
         include ('view/includes/section_add_edit_'.lcfirst($type).'.php');
         $controller_name = 'Controller_'.$type;
-        $form_data_name = $type.'_Data_Formatter';
         $action_name = 'all'.$type;
         $array = new $controller_name;
         $array = $array->$action_name();
         include ('view/'.lcfirst($type).'_page_view.php');
-}
+    }
 ?>
 <!-- '".$_SERVER['HTTP_HOST'].$_SERVER["PHP_SELF"]."?route=projects'</script>";
 // echo<<<_END

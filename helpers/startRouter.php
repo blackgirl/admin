@@ -18,8 +18,9 @@
             } break;
             case "projects": 
             case "offers": {
-                ($_SESSION['id']!="" && $_SESSION['name']!='')?include('view/users/adminpage.php'):include('view/users/auth.php');
+                (isset($_SESSION['id']) && $_SESSION['id']!="" && $_SESSION['name']!='')?include('view/users/adminpage.php'):include('view/users/auth.php');
             } break;
+            case "offer_to": {include('view/users/guestpage.php');} break;
             case "exit": {
                 if(isset($_SESSION['id'],$_SESSION['name'],$_SESSION['password']))
                     unset($_SESSION['name'],$_SESSION['id'],$_SESSION['password']);
@@ -28,11 +29,22 @@
             // case "www": {
             //     ($_SESSION['id']!="" && $_SESSION['name']!='')?include('site.php'):include('view/users/auth.php');
             // } break;
+            case "mail_to": {
+                if(isset($_REQUEST['mail_text'])) {
+                    // @mail('a.chornaya@gmail.com', 'Offer Page Visit', $_REQUEST['mail_text'],'From: la_nube@mail.ru');
+$mailto = 'a.chornaya@gmail.com';$header = "From: Alyona <la_nube@mail.ru>\r\n";
+$header .= "Reply-To: ".$replyto."\r\n";$subject='Offer Page Visit';
+$header .= "MIME-Version: 1.0\r\n";$is_sent = @mail($mailto, $subject, $_REQUEST['mail_text'], $header);
+                }
+            }
+            case "404": {
+                include('view/404.html');
+            } break;
             default: if(!isset($_SESSION['name'])) include('view/users/auth.php');
         }
     }
     elseif(!isset($_SESSION['name'])) include('view/users/auth.php');
-
+    else include('view/404.html');
     if(isset($_REQUEST['action'])) {
         $action_type = $_REQUEST['action'];
 
@@ -54,6 +66,12 @@
                 if(isset($_REQUEST['nda_id'])) {
                     $id = $_REQUEST['nda_id'];
                     $uc->hideProject($id);
+                }
+            } break;
+            case "publish": {
+                if(isset($_REQUEST['offer_id'])) {
+                    $id = $_REQUEST['offer_id'];
+                    $uc->publishLink($id);
                 }
             } break;
             // case "add": {
