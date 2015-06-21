@@ -641,9 +641,10 @@ div.big-unit-box {
 }
 
 .media-box:hover img, .project-image:hover img {
-	-webkit-transform: scale(1.2);
+/*	-webkit-transform: scale(1.2);
 	-ms-transform: scale(1.2);
-	transform: scale(1.2);
+	transform: scale(1.2);*/
+  background: transparent;border-color: transparent;
 }
 
 .media-box, .project-image {
@@ -950,22 +951,22 @@ top: 0px;  z-index: 10; cursor: pointer; font-size:0px; text-indent: -2500px; op
 .effects ul li {
 	position: relative;
 	margin: 0 -20px;
-	-webkit-transform: rotateY(60deg) scale(0.9);
+/*	-webkit-transform: rotateY(60deg) scale(0.9);
 	-ms-transform: rotateY(60deg) scale(0.9);
-	transform: rotateY(60deg) scale(0.9);
+	transform: rotateY(60deg) scale(0.9);*/
 	-webkit-transition: -webkit-transform 300ms ease-out;
 	transition: transform 300ms ease-out;
 }
 .effects ul li.active {
 	z-index: 10;
-	-webkit-transform: scale(1);
+/*	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
-	transform: scale(1);
+	transform: scale(1);*/
 }
 .effects ul li.active ~ li {
-	-webkit-transform: rotateY(-60deg) scale(0.9);
+/*	-webkit-transform: rotateY(-60deg) scale(0.9);
 	-ms-transform: rotateY(-60deg) scale(0.9);
-	transform: rotateY(-60deg) scale(0.9);
+	transform: rotateY(-60deg) scale(0.9);*/
 } 
 
 
@@ -1691,7 +1692,7 @@ select#select1 {
 }
 
 .project-item:hover, .project-item-isotope:hover {  
-  border:1px solid  #8f9cac;
+  border:1px solid  transparent;
 }
 
 .project-image {
@@ -2512,9 +2513,9 @@ hr.blog{
 }
 
 .pricing-table:hover {
-  transform: scale(1.05,1.05);
+/*  transform: scale(1.05,1.05);
   -ms-transform: scale(1.05,1.05);
-  -webkit-transform: scale(1.05,1.05);
+  -webkit-transform: scale(1.05,1.05);*/
 }
 
 .pricing-table p {

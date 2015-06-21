@@ -18,13 +18,13 @@ class projectsRepository {
 		$query = mysqli_query($this->link,"SELECT * FROM uni_projects");
 		$arr = array();
 		require_once('model/projects/model_project.php');
-		while($row = mysqli_fetch_array($query)){
+		while($row = mysqli_fetch_array($query)) {
 			array_push($arr, new Model_Project($row['title'], $row['description'], array_filter(explode("|",$row['keyftrs'])),$this->getProjectImgs($row['id']),array_filter(explode(",", $row['expertises'])), array_filter(explode(",", $row['technologies'])), $row['id'],$row['link'],$row['nda']));
 		}
 		return $arr;
 	}
 	function getProjectImgs($id) {
-		$query = mysqli_query($this->link,"SELECT * FROM uni_imgs WHERE project_id = '".$id."'");
+		$query = mysqli_query($this->link,"SELECT * FROM uni_projects_cases WHERE file_owner_id = '".$id."'");
 		$result = [];
 		while($imgs = mysqli_fetch_array($query)) {
 		     $result[] = $imgs['file_name'];

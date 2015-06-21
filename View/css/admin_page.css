@@ -8,11 +8,12 @@
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 	margin:0;
 	padding:0;
-	border:0;
+	border:none;
 	outline:0;
 	font-size:100%;
 	vertical-align:baseline;
 	background:transparent;
+	border-color: transparent;
 }
 .popover {max-width: 100%;}
 kbd {background-color: transparent;
@@ -344,13 +345,22 @@ input[type=checkbox].glyphicon{
 	margin-left: 0;
 	margin-bottom: 0;
 	padding-left: 0;
-	border: 1px dotted #ccc;
+	border: 1px dotted transparent;
 }
 #AdminPage .img-list .li-imgs img,
 #AdminPage .offer-content .li-imgs img {
-	max-width:200%;
-	max-height:200%;
+	/*max-width:200%;
+	max-height:200%;*/
+	width:100%;
+	height:auto;
 }
+#PersonalOffer .project-image,
+#PersonalOffer .overview.cases .media-box,
+.project-item-isotope,
+#PersonalOffer .overview.cases .project-image .project-item-isotope {
+	background: transparent;border-color:transparent;
+} 
+#PersonalOffer .container {padding: 0px; margin:0px;}
 #AdminPage .offer-task-list ul>li .o-task {font-weight:200;text-align: left;}
 #AdminPage .offer-task-list ul>li .o-num {font-size:14px;padding: 0 15px;}
 #AdminPage .popover-content a:hover,
@@ -396,6 +406,11 @@ input[type=checkbox].glyphicon{
 	margin-top: 20px;
 }
 
+#AdminPage .panel-group.add-new-offer .form-group.keyftrs input {
+	color: steelblue;
+	font-style: italic;
+}
+#AdminPage .panel-group.add-new-offer .form-group.keyftrs input,
 #AdminPage .panel-group.add-new-project .form-group.keyftrs input {
 	margin-top:10px;
 }
@@ -425,7 +440,9 @@ input[type=checkbox].glyphicon{
 #AdminPage .panel-group.add-new-project #btn-add-line {
 	margin:0;
 }
+#AdminPage .panel-group.add-new-offer #btn-attach,
 #AdminPage .panel-group.add-new-offer #btn-add-task {color:lightgray;}
+#AdminPage .panel-group.add-new-offer #btn-attach:hover,
 #AdminPage .panel-group.add-new-offer #btn-add-task:hover {background: transparent;color: tomato;}
 #AdminPage .panel-group.add-new-offer #btn-file:hover,
 #AdminPage .estimation #calculate:hover,

@@ -1,0 +1,37 @@
+/* PDF document links */
+a[href$='.pdf'] {
+background:transparent url(../img/file-icons/pdf.png) center left no-repeat;
+display:inline-block;
+padding-left:20px;
+line-height:15px;
+}
+ 
+/* Excel Documents links */
+a[href$='.xls'], a[href$='.csv'], a[href$='.xlw'], a[href$='.xlt'] {
+background:transparent url(../img/file-icons/excel.png) center left no-repeat;
+display:inline-block;
+padding-left:20px;
+line-height:15px;
+}
+ 
+/* Word Document Links */
+a[href$='.doc'], a[href$='.rtf'], a[href$='.wps'], a[href$='.txt'] {
+background:transparent url(../img/file-icons/word.png) center left no-repeat;
+display:inline-block;
+padding-left:20px;
+line-height:15px;
+}
+/* Archive files */
+a[href$='.zip'], a[href$='.rar'], a[href$='.gzip'] {
+background:transparent url(../images/zip.png) center left no-repeat;
+display:inline-block;
+padding-left:20px;
+line-height:18px;
+}
+/* mailto: links */
+a[href^="mailto:"] {
+background:transparent url(../img/file-icons/mailto.png) center left no-repeat;
+display:inline-block;
+padding-left:20px;
+line-height:15px;
+}

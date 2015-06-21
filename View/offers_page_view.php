@@ -3,19 +3,18 @@ require_once('helpers/offerAdapter.php');
 $ad = new offerAdapter();
 	$html = '';
 	foreach($array as $obj) {
-        $images = [];
-        $casesClass = '';
-        $linkClass='';
+        $attachments = []; $cases = [];
+        $casesClass = ''; $attachmentsClass = ''; $linkClass='';
+        
         $u = strlen(dirname(dirname(__FILE__)));
         $obj->link = 'http://'.html_entity_decode($_SERVER['HTTP_HOST'].'/cmstest/offer_personal.html?'.$obj->id);
-        // if($obj->link == '') {
-        //     $linkClass = 'hide';
-        // }
-        if(isset($obj->images) && count($obj->images) == 0) {
-            $casesClass = ' hide';
-        } else {
-            $images = $obj->images;
-        }
+        
+        if(isset($obj->attachments) && count($obj->attachments) == 0) $attachmentsClass = ' hide';
+        else $attachments = $obj->attachments;
+
+        if(isset($obj->cases) && count($obj->cases) == 0) $casesClass = 'hide';
+        else $cases = $obj->cases;
+
         if(isset($obj->estimation)) {
         	$estim = $obj->estimation;
         	$estimation = [];

@@ -1,5 +1,6 @@
 <?php
     require_once('controller/users/userController.php');
+    require_once('general_helper.php');
 
     if(isset($_GET['route'])) {
         $route = $_GET['route'];
@@ -32,9 +33,9 @@
             case "mail_to": {
                 if(isset($_REQUEST['mail_text'])) {
                     // @mail('a.chornaya@gmail.com', 'Offer Page Visit', $_REQUEST['mail_text'],'From: la_nube@mail.ru');
-$mailto = 'a.chornaya@gmail.com';$header = "From: Alyona <la_nube@mail.ru>\r\n";
-$header .= "Reply-To: ".$replyto."\r\n";$subject='Offer Page Visit';
-$header .= "MIME-Version: 1.0\r\n";$is_sent = @mail($mailto, $subject, $_REQUEST['mail_text'], $header);
+                    $mailto = 'a.chornaya@gmail.com';$header = "From: Alyona <la_nube@mail.ru>\r\n";
+                    $header .= "Reply-To: ".$replyto."\r\n";$subject='Offer Page Visit';
+                    $header .= "MIME-Version: 1.0\r\n";$is_sent = @mail($mailto, $subject, $_REQUEST['mail_text'], $header);
                 }
             }
             case "404": {
@@ -102,7 +103,7 @@ $header .= "MIME-Version: 1.0\r\n";$is_sent = @mail($mailto, $subject, $_REQUEST
     if(isset($_POST['add-new-offer'])) {
         $oc = new Controller_Offers();
         $estimationItem = []; $estimation = [];
-        $arr = $_POST['estim'];
+        $arr = isset($_POST['estim'])?$_POST['estim']:[];
         while (list($k,$v)=each($arr)) {
             if (is_array($v)) {
                 array_splice($arr,$k,1,$v);
@@ -110,7 +111,7 @@ $header .= "MIME-Version: 1.0\r\n";$is_sent = @mail($mailto, $subject, $_REQUEST
             }
         }
         if(trim($_POST['new-offer-title']) && trim($_POST['new-offer-description']))
-            if($oc->addOffer($_POST['new-offer-title'],$_POST['new-offer-url'],trim($_POST['new-offer-description']),$arr)) {
+            if($oc->addOffer($_POST['new-offer-title'],$_POST['new-offer-url'],trim($_POST['new-offer-description']),$arr,'',[],$_POST['new-offer-cases'])) {
                 require_once('helpers/uploader.php');
                 include('view/includes/reloader.php');
             }

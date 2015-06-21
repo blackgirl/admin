@@ -21,7 +21,7 @@ class offersRepository {
 			require_once('model/offers/model_offer.php');
 			while($row = mysqli_fetch_array($query)){
 				if(isset($row['id']) && $row['estimation'] != NULL) $row['estimation'] = $this->getEstimation($row['id']);
-				array_push($arr, new Model_Offer($row['title'],$row['link'],$row['description'], $row['estimation'], $row['id'],$this->getOfferImgs($row['id'])));
+				array_push($arr, new Model_Offer($row['title'],$row['link'],$row['description'], $row['estimation'], $row['id'],$this->getOfferCases($row['id']),$this->getOfferattachments($row['id'])));
 			}
 		}
 		return $arr;
@@ -32,11 +32,23 @@ class offersRepository {
 				$query = mysqli_query($this->link,"INSERT INTO uni_offers (title,description,link) 
 	 					VALUES ('".$offer->title."','".$offer->description."','".$offer->link."')");
 				if($query) {
-					$this->addEstimation($offer->estimation,$this->getLastId());
+					$lastId = $this->getLastId();
+					$this->addOfferAttachments($offer->cases,$lastId);
+					$this->addEstimation($offer->estimation,$lastId);
 				}
 			}
 		}
 		return $query;
+	}
+	function addOfferAttachments($attached,$id) {
+		$queryPrepare = '';
+        foreach($attached as $key=>$val) {
+	        $queryPrepare .= ($key=='0')?'':',';
+        	$queryPrepare .= '("'.$val.'","'.$id.'")';
+	    }
+		if(!strlen($queryPrepare)) return;
+			$rqv = 'INSERT INTO `uni_offer_attachments` (`src`,`file_owner_id`) VALUES'.$queryPrepare;
+		    $query = mysqli_query($this->link, $rqv);
 	}
 	function addEstimation($estim, $id) {
 		if(isset($estim) && isset($id)) {
@@ -69,12 +81,36 @@ class offersRepository {
 		mysqli_query($this->link,$qweryDelete);
 		echo mysqli_affected_rows($this->link);
 	}
-	function getOfferImgs($id) {
-		$query = mysqli_query($this->link,"SELECT * FROM uni_offer_cases WHERE offer_id = '".$id."'");
+	function getOfferCases($id) {
+		$result = [];
+		$query = mysqli_query($this->link,"SELECT * FROM uni_offers_cases WHERE file_owner_id = '".$id."'");
+		if($query) {
+			while($case = mysqli_fetch_array($query)) {
+			    if(!empty($case['file_name']) && !empty($case['file_type'])) {
+			    	$case['file_type'] = GetFileType($case['file_name']);
+			    	$result[] = $case;
+				}
+			    // array_push($result,$imgs);
+			}
+		}
+		return $result;
+	}
+	// function getOfferFileType($id) {
+	// 	$query = mysqli_query($this->link,"SELECT * FROM uni_offer_cases WHERE offer_id = '".$id."'");
+	// 	$resultTypes = [];
+	// 	if($query) {
+	// 		while($type = mysqli_fetch_array($query)) {
+	// 		    if(!empty($type['file_type'])) array_push($resultTypes,$type['file_type']);
+	// 		}
+	// 	}
+	// 	return $resultTypes;
+	// }
+	function getOfferAttachments($id) {
+		$query = mysqli_query($this->link,"SELECT * FROM uni_offer_attachments WHERE file_owner_id = '".$id."'");
 		$result = [];
 		if($query) {
-			while($imgs = mysqli_fetch_array($query)) {
-			     if(!empty($imgs['file_name'])) array_push($result,$imgs['file_name']);
+			while($src = mysqli_fetch_array($query)) {
+			     if(!empty($src['src'])) array_push($result,$src['src']);
 			}
 		}
 		return $result;
@@ -108,7 +144,7 @@ class offersRepository {
 			require_once('model/offers/model_offer.php');
 			while($row = mysqli_fetch_array($query)){
 				if(isset($row['id']) && $row['estimation'] != NULL) $row['estimation'] = $this->getEstimation($row['id']);
-				$arr = new Model_Offer($row['title'],$row['link'],$row['description'], $row['estimation'], $row['id'],$this->getOfferImgs($row['id']));
+				$arr = new Model_Offer($row['title'],$row['link'],$row['description'], $row['estimation'], $row['id'],$this->getOfferCases($row['id']),$this->getOfferAttachments($row['id']));
 			}
 		}
 		return $arr;

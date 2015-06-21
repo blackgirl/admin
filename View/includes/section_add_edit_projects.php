@@ -42,7 +42,7 @@
         	<div class="input-group col-md-12">
         		<span class="btn btn-default btn-file">
                         Browse images… 
-			    	<input type="file" name="files[]" multiple class="form-control" accept="image/*"/>
+			    	<input type="file" name="files[]" multiple class="form-control" accept="image/jpeg,image/jpg,image/png,image/gif"/>
 			    </span><div class="image_loaded"></div>
 
 	    	</div>

@@ -101,17 +101,22 @@ $(document).ready(function() {
 
 	/* Add new data row after current element */
 	var _addInput = '<input type="text" name="new-project-feature[]" class="form-control" placeholder="Add Feature"/>';
+	var _addUrlInput = '<input type="text" name="new-offer-cases[]" class="form-control new-offer-case" placeholder="http://"/>';
 	var _addRow = '<div class="form-inline estimation-table-row table-row col-md-12"><div class="form-group col-md-8"><label class="sr-only" for="esti-task">Task</label><input type="text" pattern=".{4,}" name="estim[][task]" class="form-control esti-task" placeholder="Task" autocomplete="off" required></div><div class="form-group col-md-2"><label class="sr-only" for="esti-hrs">Estimated Hrs</label><input type="text" name="estim[][hrs]" pattern="[0-9]{3,}"  class="form-control esti-hrs" placeholder="Estimated Hrs" autocomplete="off" required></div><div class="form-group col-md-2"><label class="sr-only" for="esti-cost">Estimated Cost</label><input type="text" pattern="[0-9]{3,}" name="estim[][cost]" class="form-control esti-cost" placeholder="Estimated Cost" autocomplete="off" required></div></div>';
 	$('#btn-add-task').on('click', function() {
 		autoAddRow(true);
 	});
 	$('#btn-add-line').on('click', function() {
-	  	autoAddInput(true);
+	  	autoAddInput(true,false);
+	});
+	$('#btn-attach').on('click', function() {
+	  	autoAddInput(true,true);
 	});
 	/* Key Futures List new row adding function */
-	function autoAddInput(isBtn) {
+	function autoAddInput(isBtn,isUrl) {
+		var el = isUrl?_addUrlInput:_addInput;
 	    if($('.keyftrs input:last').val() != "" || isBtn) {
-	        $('.keyftrs input:last').after(_addInput);
+	        $('.keyftrs input:last').after(el);
 	    }
 	};
 	/* Estimation Table new row adding function */
@@ -129,7 +134,8 @@ $(document).ready(function() {
     $(document).on('keypress', '.keyftrs input:last', function (e) {
 	    if (e.which == 13) {
 	    	e.preventDefault();
-	    	autoAddInput(false);
+	    	autoAddInput(false,$(this).hasClass('new-offer-case')?true:false);
+	    	// autoAddInput(false,false);
 	    }
 	});
 	/* Estimation table Events */

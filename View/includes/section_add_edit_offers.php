@@ -19,19 +19,19 @@
 					    	<label class="" for="new-offer-description">Description:</label>
 							<textarea name="new-offer-description" class=" form-control new-offer-description" data-minlength="10" rows="5" placeholder="Add Description" required></textarea>
 					    </div>
-					    <div class='form-group'>
-					    	<label class="control-label hide">Cases:</label>
-							<div class=""></div>
-					    </div>
+					    <div class='form-group keyftrs new-offer-cases clearfix'>
+					    	<label for="new-offer-cases[]" class="control-label">Related Cases:</label>
+							<input type="text" name="new-offer-cases[]" class="new-offer-case form-control" placeholder="http://image-name.png/jpg/jpeg/gif"/>
+							<a type="button" class="btn btn-default btn-sm pull-right" id="btn-attach">
+								<span class="fa fa-plus"></span>
+							</a>
+						</div>
 					    <div class='form-group'>
 					    	<label class="control-label">Attachments:</label>
-							<div class=""></div>
-					    </div>
-				        <div class='form-group'>
 				        	<div class="input-group col-md-12">
 				        		<span class="btn btn-default btn-file">
-			                        Browse images… 
-							    	<input type="file" name="files[]" multiple class="form-control"accept="image/*"/>
+			                        Browse files… 
+							    	<input type="file" name="files[]" multiple class="form-control"/>
 							    </span><div class="image_loaded"></div>
 					    	</div>
 				    	</div>

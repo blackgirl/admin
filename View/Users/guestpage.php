@@ -6,17 +6,17 @@ if(isset($_GET['route']) && isset($_REQUEST['offer_id']) && $_GET['route'] == 'o
 	$oc = new Controller_Offers();
 	$obj = $oc->getOfferData($id);
 	$html = '';
-    $images = [];
-    $casesClass = '';
-    $linkClass='';
+    $attachments = []; $cases = [];
+    $casesClass = ''; $attachmentsClass = ''; $linkClass='';
     if($obj->link == ''){
         $linkClass = 'hide';
     }
-    if(isset($obj->images) && count($obj->images) == 0) {
+    if(isset($obj->attachments) && !$obj->attachments) {
+        $AttachmentsClass = ' hide';
+    } else $attachments = $obj->attachments;
+    if(isset($obj->cases) && !$obj->cases) {
         $casesClass = ' hide';
-    } else {
-        $images = $obj->images;
-    }
+    } else $cases = $obj->cases;
     if(isset($obj->estimation)) {
     	$estim = $obj->estimation;
     	$estimation = [];

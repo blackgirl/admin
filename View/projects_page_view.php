@@ -40,7 +40,7 @@ HTML;
 $t = 0;
 foreach ($images as $imgName) {
 $html.=<<<HTML
-<a class="col-md-6 li-imgs " href="uni_imgs/{$imgName}"><img src="uni_imgs/{$imgName}"></a>
+<a class="col-md-6 li-imgs " href="uni_uploads/{$imgName}"><img src="uni_uploads/{$imgName}"></a>
 HTML;
 }
 $html.=<<<HTML

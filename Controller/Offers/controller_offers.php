@@ -12,8 +12,8 @@ class Controller_Offers {
     function deleteOffers($idsArray){
         return offersRepository::getInstance()->deleteOffers($idsArray);
     }
-    function addOffer($title,$link,$desc,$estim) {
-        $newOffer = new Model_Offer($title,$link,$desc,$estim);
+    function addOffer($title,$link,$desc,$estim,$id = '',$images = [],$cases = []) {
+        $newOffer = new Model_Offer($title,$link,$desc,$estim,$id,$images,$cases);
         return offersRepository::getInstance()->addOffer($newOffer);
     }
     function getOwnerId() {

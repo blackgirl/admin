@@ -19,9 +19,24 @@
 				        <div class="img-list">
 HTML;
 $t = 0;
-foreach ($images as $imgName) {
+foreach($cases as $src) {
+	// $projectPath = RemoveFileType($src);
 $html.=<<<HTML
-			            <a class="li-imgs pull-left col-md-6" href="uni_imgs/{$imgName}"><img src="uni_imgs/{$imgName}"></a>
+			            <a class="li-imgs pull-left col-md-6" href="{}"><img src ="{$src}" alt="Case"></a>
+HTML;
+}
+$html.=<<<HTML
+				        </div>
+				    </div>
+				    <div class="{$attachmentsClass}"><h5>Attachments</h5>
+				        <div class="img-list">
+HTML;
+$t = 0;
+foreach ($attachments as $attached) {
+	$attachedName = $attached['file_name'];
+	$attachedType = strtoupper(GetFileType($attached['file_type']));
+$html.=<<<HTML
+			            <a class="li-imgs pull-left col-md-6" href="uni_uploads/{$attachedName}"><img src="view/img/file_types/{$attachedType}.png"></a>
 HTML;
 }
 $html.=<<<HTML

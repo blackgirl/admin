@@ -1,0 +1,663 @@
+
+
+
+/* LISTS */
+
+/* 
+A default margin-top/bottom for lists is NOT set in config.php - (standard browsers give outermost list a top and bottom margin).
+[mPDF default CSS set in config.php only works on basic elements, cannot do selectors such as "ol ol"]
+Need to add the following to do this, but also prevent margins in nested lists as per default HTML in most browsers: 
+*/
+
+ul, ol { margin-top: 0.83em; margin-bottom: 0.83em; }
+ul ul, ul ol, ol ul, ol ol { margin-top: 0; margin-bottom: 0; }
+
+
+/* INDEXES */
+div.mpdf_index_main {
+	font-family: sans-serif;
+	line-height: normal;
+	background: #000000;
+	color: #ffffff;
+}
+div.mpdf_index_entry {
+	line-height: normal;
+	text-indent: -1.5em;
+}
+div.mpdf_index_letter {
+	font-family: sans-serif;
+	font-size: 1.8em;
+	font-weight: bold;
+	line-height: normal;
+	text-transform: uppercase;
+	page-break-after: avoid; 
+	margin-top: 0.3em; 
+	margin-collapse: collapse;
+}
+a.mpdf_index_link { 
+	color: #000000; 
+	text-decoration: none; 
+}
+
+
+
+/* TABLE OF CONTENTS */
+div.mpdf_toc {
+	font-family: sans-serif;
+	line-height: normal;
+}
+a.mpdf_toc_a  {
+	text-decoration: none;
+	color: black;
+}
+div.mpdf_toc_level_0 {		/* Whole line level 0 */
+	line-height: 1.5;
+	margin-left: 0;
+	padding-right: 0em;	/* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+}
+span.mpdf_toc_t_level_0 {	/* Title level 0 - may be inside <a> */
+	font-weight: bold;
+}
+span.mpdf_toc_p_level_0 {	/* Page no. level 0 - may be inside <a> */
+}
+div.mpdf_toc_level_1 {		/* Whole line level 1 */
+	margin-left: 2em;
+	text-indent: -2em;
+	padding-right: 0em;	/* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+}
+span.mpdf_toc_t_level_1 {	/* Title level 1 */
+	font-style: italic;
+	font-weight: bold;
+}
+span.mpdf_toc_p_level_1  {	/* Page no. level 1 - may be inside <a> */
+}
+div.mpdf_toc_level_2 {		/* Whole line level 2 */
+	margin-left: 4em;
+	text-indent: -2em;
+	padding-right: 0em;	/* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+}
+span.mpdf_toc_t_level_2 {	/* Title level 2 */
+}
+span.mpdf_toc_p_level_2 {	/* Page no. level 2 - may be inside <a> */
+}
+
+#AdminPage .body-padding {
+	/*padding-bottom: 30px;*/
+	font:13px/1.5 "Helvetica Neue",Arial,"Liberation Sans",FreeSans,sans-serif;
+	background-color:#666;
+
+	line-height:1;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:#000;
+	color: red;
+}
+#AdminPage ::selection {
+	background: beige;
+}
+#AdminPage .need-to-fill {
+	border-color: red !important;
+}
+#AdminPage .modal-dialog {
+	width: 75%;
+}
+#AdminPage .modal-content {border-radius: 2px;}
+#AdminPage form {
+	text-align: center;
+}
+#AdminPage .panel-title form {
+	float: right;
+	text-align: center;
+}
+
+textarea.has-warning,
+input.has-warning {
+	border: 3px solid red;
+}
+input.has-success {
+	
+}
+input.has-warning {
+	/*border: 1px solid blue;*/
+}
+
+#AdminPage .btn-group-sm>.btn, .btn-sm {
+	padding: 10px 10px;
+	margin: 15px 5px 0px 0px;
+	font-size: 16px;
+	color: #ccc;
+	font-weight: 200;
+}
+
+#AdminPage .panel-title .btn, #AdminPage .panel-title .btn-sm {
+	padding: 0;
+	margin: 0;
+	margin-right: 15px;
+	color: #ccc;
+}
+#AdminPage .panel-title .btn:hover, #AdminPage .panel-title .btn-sm:hover {
+	color: #222;
+}
+#AdminPage .btn-group-sm>.btn:first-child, .btn-sm:first-child {
+	margin-left: 15px;
+}
+#AdminPage .btn-group-sm>.btn.btn-success, .btn-sm.btn-success {
+	background-color:#27bf6b;
+	border-color:#27bf6b;
+}
+#AdminPage .btn-group-sm>.btn.btn-danger, .btn-sm.btn-danger {
+	background-color:#dd2500;
+	border-color:#dd2500;
+}
+#AdminPage .btn-group-sm>.btn.btn-info, .btn-sm.btn-info,
+#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+	background-color:#0083d0;
+	border-color:#0083d0;
+	opacity: 1;
+}
+#AdminPage .btn-group-sm>.btn.btn-default, .btn-sm.btn-default {
+	color: #333;
+}
+#AdminPage .btn-group-sm>.btn.btn-default, .btn-sm.btn-default,
+#AdminPage .btn-group-sm>.btn.btn-success, .btn-sm.btn-success,
+#AdminPage .btn-group-sm>.btn.btn-warning, .btn-sm.btn-warning,
+#AdminPage .btn-group-sm>.btn.btn-danger, .btn-sm.btn-danger,
+#AdminPage .btn-group-sm>.btn.btn-info, .btn-sm.btn-info,
+#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+	background-color: transparent;
+	border-color: transparent;
+	
+}
+#AdminPage .btn-group>.btn:hover {
+	color: black;
+}
+#AdminPage .btn-group-sm>.btn.btn-info.disabled, .btn-sm.btn-info.disabled {
+	color: #ccc;
+}
+#AdminPage .btn-group-sm>.btn.btn-warning, .btn-sm.btn-warning {
+	background-color:#eadb34;
+	border-color:#eadb34;
+}
+.td-imgs img {
+	padding: 0;
+	margin: 0;
+}
+.table-list td {
+	height: auto;
+	overflow-y: hidden;
+	text-overflow: ellipsis;
+	padding:0 15px;
+	font-size: 12px;
+}
+.table-list td:last-child {
+	padding:0;
+	margin:0;
+}
+.panel-body .glyphicon-briefcase,
+.panel-body .glyphicon-wrench {
+	padding: 0 4px 0 0;
+	color:slategrey;
+	top: 2px;
+}
+.container ul.nav {
+	padding: 0;
+}
+.navbar {
+	padding: 0px 0px 0px 0px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	margin-bottom: 0px;
+}
+#AdminPage .navbar .nav > li {
+	padding:10px 0px;
+}
+#AdminPage .navbar .nav > li > a, 
+#AdminPage .navbar .nav > li.active > a {
+	color: lightslategray;
+	padding: 3px 10px 3px 20px;
+	border: 5px solid transparent;
+}
+#AdminPage .navbar .nav>li>a:focus,
+#AdminPage .navbar .nav>li>a:hover {
+	color:  darkslategray;
+}
+#AdminPage .navbar .nav > li.active > a {
+	color: darkslategray;
+	border-color: lightgoldenrodyellow;
+}
+#AdminPage .navbar .nav > li.active > a:hover {
+	 /*border-color: lightblue;*/
+	 color: darkslategray;
+
+}
+#AdminPage .back-to-top .logo {padding:17px 0px;max-width:82px;}
+#AdminPage .panel-group .center-nav-content-slider .flex-direction-nav a {
+	font-size: 32px;
+	width: 30px;
+	line-height: 30px;
+	height:30px;
+	background: none;
+	opacity: 1;
+	/*color: #ccc;*/
+	color: rgb(32, 127, 202);
+	background: rgba(255,255,255,.5);
+}
+#AdminPage .panel-group .flex-direction-nav a:hover {
+	/*color: seagreen;*/
+	background: rgba(255,255,255,.1);
+}
+/*#AdminPage .panel-group .center-nav-content-slider .flex-direction-nav a:last-child {}*/
+#AdminPage .nav span.glyphicon-log-out {
+	margin-left: 0px;
+	color:lightsteelblue;
+	font-size: 12px;
+	top:0;
+}
+#AdminPage .nav li:last-child a {
+	padding-right: 0;
+}
+#AdminPage .nav a:last-child:hover,
+#AdminPage .nav span.glyphicon-log-out {
+	opacity: 1;
+}
+/*Custom Checkbox */
+.glyphicon.glyphicon-unchecked:before {
+	visibility: visible;
+	visibility: visible;
+	color: grey;
+	font-family: 'Sourse Sans';
+	line-height: 10px;
+	font-size: 16px;
+}
+.glyphicon.glyphicon-unchecked:hover:before,
+.glyphicon.glyphicon-unchecked + a:hover,
+.glyphicon.glyphicon-unchecked:checked + a,
+.glyphicon.glyphicon-unchecked:checked:before,
+.glyphicon.glyphicon-unchecked:checked ~ form .fa {
+	color: seagreen;
+}
+	
+.glyphicon.glyphicon-unchecked:hover {
+	cursor: pointer;
+}
+
+.glyphicon.glyphicon-unchecked:checked:before {
+   content: "\e013";
+   font-family: 'Glyphicons Halflings';
+}
+input[type=checkbox].glyphicon{
+    visibility: hidden;
+}
+.glyphicon.glyphicon-unchecked {
+	top: -4px;
+}
+#AdminPage .panel-group {
+	/*margin:0;*/
+	width:88.5%;
+	margin: 0 auto;
+}
+#AdminPage .panel-group .panel {
+	border-radius: 0px;
+}
+#AdminPage .panel-default {
+	border-color: #ebebeb;
+	border-width: 0;
+	border-top: 1px dotted #eee;
+}
+#AdminPage .panel-default.nda .fa-eye-slash {
+	color:lightcoral;
+	font-weight: 600;
+}
+#AdminPage .panel-heading {
+	text-align: left;
+	background: white;
+}
+#AdminPage .panel-heading:hover {
+	background: whitesmoke;
+}
+#AdminPage .panel-default .panel-heading strong {
+	display: none;
+}
+#AdminPage .panel-default.nda .panel-heading strong {
+	display:inline-block;color: lightcoral;font-size: 24px;
+}
+#AdminPage .panel-title>a {
+	margin-left: 10px;
+}
+#AdminPage .panel-body {
+	border-color: transparent;
+}
+#AdminPage .panel-body {
+	text-align: left;
+}
+#AdminPage h4,
+#AdminPage h4 a {
+	font-weight: 400;
+}
+#AdminPage .panel-body h5 {
+	font-size: 22px;
+	margin: 20px 0px;
+	color: #999;
+}
+#AdminPage .panel-body h5.col-md-8,
+#AdminPage .panel-body h5.offer-title {
+	font-size: 32px;
+	color: #555;
+	margin-bottom: 20px;
+	background: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#AdminPage .panel-body p,
+#AdminPage blockquote li {font-size: 14px;letter-spacing: .2px;}
+/*#AdminPage .offer-content h5 {font-size: 16px;margin-bottom: 5px;color:#999;}*/
+#AdminPage .offer-content > div {
+	margin-bottom: 25px;
+	float:left;
+	width:100%;
+}
+
+#AdminPage .offer-title .fa {
+	margin-left: 15px;
+	font-size: 16px;
+	color: #666
+}
+#AdminPage #offers .fa-arrows-alt {
+	font-size: 12px;
+	padding: 3px 0;
+}
+
+#AdminPage .project-title a,
+#AdminPage .offer-title a {
+	color: rgba(95, 165, 208, .8);
+	font-style: italic;
+	font-size: 15px;
+	margin-left: 7px;
+}
+.modal-content ul,
+#AdminPage .offer-task-list ul {
+	-webkit-padding-start: 0;
+	padding: 30px;
+	border: 1px dotted #ccc;
+	text-align: center;
+}
+.modal-content ul {
+	margin-bottom: 50px;
+	width:100%;
+	display: block;
+}
+.modal-content p,
+.modal-content h4,
+.modal-content .offer-task-list {
+	margin: 15px;
+}
+#AdminPage .offer-task-list ul>li {margin: 10px 0;}
+#AdminPage .offer-content .li-imgs,
+#AdminPage .img-list span {
+	/*margin: 0 0px 5px 0;*/
+	padding: 5px;
+}
+#AdminPage .offer-content .li-imgs {
+	max-width: 25%;
+}
+#AdminPage .offer-task-list ul>li .o-task {font-weight:200;text-align: left;padding-right: 50%;}
+#AdminPage .offer-task-list ul>li .o-num {font-size:14px;padding: 0 15px;}
+#AdminPage .project-title a:hover,
+#AdminPage .offer-title a:hover {
+	color: rgba(95, 165, 208, 1);
+	border-bottom: 1px dotted rgba(95, 165, 208, 1);
+}
+#AdminPage .estimation .form-group {
+	padding: 0;
+}
+#AdminPage .estimation.form-group {
+	margin-bottom: 50px;
+}
+#AdminPage .estimation-table-row {display: table-row; padding:0;}
+#AdminPage .estimation-table-row .form-group {display: table-cell;}
+#AdminPage .estimation-table-row .form-group input {width: 100%;}
+#AdminPage .estimation .form-group #esti-task {border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
+#AdminPage .estimation .form-group #esti-hrs {border-radius: 0px;}
+#AdminPage .estimation .form-group #esti-cost {border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
+#AdminPage .estimation-table-row + .estimation-table-row input {border-top-color: transparent;border-top-left-radius: 0px;border-top-right-radius: 0px;}
+#AdminPage .estimation-table-row.need-to-fill {border: 1px solid red;}
+#AdminPage .estimation .btn-default {border-color:transparent;}
+#AdminPage .estimation .total-placeholder {
+	font-size:24px;
+	color:#222;
+	font-weight: 600;
+	padding: 0;
+	border-color:transparent;
+	text-align: right;
+	}
+#AdminPage .panel-body .btn.tag.Media {margin-top: 0;}
+#AdminPage .panel-body .btn.tag:hover {
+	text-decoration: line-through;
+}
+#AdminPage .panel-group.add-new-offer .panel-title,
+#OfferPage .panel-group.add-new-project .panel-title {
+	text-align: center;
+}
+#AdminPage .panel-group.add-new-offer label,
+#AdminPage .panel-group.add-new-project label {
+	font-weight: 200;
+	margin-top: 20px;
+}
+
+#AdminPage .panel-group.add-new-project .form-group.keyftrs input {
+	margin-top:10px;
+}
+#AdminPage #collapseTechnology,
+#AdminPage #collapseExpertises {
+	width:50%;
+	text-align: left;
+	float:left;
+}
+#AdminPage #collapseTechnology select[multiple],
+#AdminPage #collapseExpertises select[multiple] {
+	height: 250px;
+}
+#AdminPage #collapseExpertises select[multiple] option:hover,
+#AdminPage #collapseTechnology select[multiple] option:hover,
+#AdminPage #collapseExpertises select[multiple] option[selected],
+#AdminPage #collapseTechnology select[multiple] option[selected],
+#AdminPage #collapseExpertises select[multiple] option:focus,
+#AdminPage #collapseTechnology select[multiple] option:focus,
+#AdminPage #collapseExpertises select[multiple] option:active,
+#AdminPage #collapseTechnology select[multiple] option:active,
+#AdminPage #collapseExpertises select[multiple] option:checked,
+#AdminPage #collapseTechnology select[multiple] option:checked {
+  background: beige;
+}
+#AdminPage .panel-group.add-new-offer #btn-add-task,
+#AdminPage .panel-group.add-new-project #btn-add-line {
+	margin:0;
+}
+#AdminPage .panel-group.add-new-offer #btn-add-task:hover,
+#AdminPage .panel-group.add-new-offer #btn-file:hover,
+#AdminPage .estimation #calculate:hover,
+#AdminPage .panel-group.add-new-project #btn-add-line:hover {
+	color: deepskyblue;
+	background: transparent;
+}
+#AdminPage .estimation #calculate {
+	padding-top:0;
+	padding-right: 7px;
+}
+#AdminPage .estimation hr {
+	width:100%;
+	padding: 0 0 5px 0;
+	height:1px;
+	border: none;
+	border-bottom: 1px dashed #eee;
+}
+#AdminPage blockquote {
+	border-color: yellowgreen;
+}
+#AdminPage blockquote>ul {
+	-webkit-padding-start: 0px;
+}
+#OfferPage blockquote{
+  font-style:italic;
+  line-height:24px;
+  padding:0px 0px 0px 20px !important;
+}
+#AdminPage blockquote {
+  padding: 0px 10px;
+  margin: 0 0 20px;
+  font-size: 16px;
+  border-left: 5px solid yellowgreen;
+  color: slategrey;
+  font-family: 'Sourse Sans',sans-serif;
+  line-height: 1.2;
+}
+
+/* Add new project dropsone*/
+#collapseAdd input,
+#collapseAdd textarea,
+#collapseAdd .btn-success {
+	border: 1px dotted skyblue;
+	border-radius: 2px;
+}
+#collapseAdd .btn-success {
+	/*background-color: lightgrey;*/
+	border-color: transparent;
+	background-color: transparent;
+	color: yellowgreen;
+}
+#collapseAdd .input-group.col-md-12 {
+	border-radius: 4px;
+	border: none;
+}
+
+#collapseAdd .image_loaded {
+	float:left;width:80%;
+	text-align: left;
+	padding:7px 15px;
+	color:grey;
+	padding-top:0;
+}
+#collapseAdd .image_loaded p {
+	margin: 0;
+	line-height: 1;
+	font-size: 10px;
+}
+#collapseAdd .btn-file {
+	border: 1px dotted skyblue;
+	float:left;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	background: none;
+}
+#collapseAdd .btn-file:hover {
+	background: skyblue;
+	cursor: pointer;
+	border: 1px solid #fff;
+	color: #fff;
+
+}
+
+#collapseAdd input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	background: red;
+	cursor: pointer;
+	display: block;
+}
+#collapseAdd input[readonly] {
+	background-color: white !important;
+	cursor: text !important;
+}
+#collapseAdd .btn-success:hover {
+	/*background-color: rgb(27, 148, 142);;*/
+	/*border: 1px solid rgb(27, 148, 142);;*/
+	background-color: yellowgreen;
+	border-color: transparent;
+	color: whitesmoke;
+}
+#collapseAdd h4.panel-title {
+	/*font-size: 20px;
+	margin-bottom: 25px;*/
+	font-size: 32px;
+	color: #555;
+}
+form.col-md-4.dropzone.dz-clickable {
+	min-height: 50%;
+	height: auto;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	text-align: left;
+	padding:10px;
+}
+.dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete {
+	float:left;
+}
+.dz-preview .glyphicon-remove {
+	position: absolute;
+	top:35px;
+	color: seagreen;
+	font-size: 18px;
+	left:110px;
+	border:none;
+	cursor: pointer;
+	opacity: .75;
+}
+.dz-preview .glyphicon-remove:hover {
+	opacity: 1;
+}
+.dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete div:not(.dz-image) {
+	display:none;
+}
+footer {position: relative;bottom:0;text-align: right;margin-right: 6%;padding: 50px 0 0;}
+footer .container {padding:0;}
+footer p {padding:0;margin:0;color:#999;font-size: 12px;}
+
+
+
+
+
+div.fancybox-wrap.fancybox-desktop.fancybox-type-image.fancybox-opened {
+	opacity: 1;
+	overflow: visible;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: auto;
+	background: rgba(255,255,255,.5)!important;
+}
+div.fancybox-inner {
+	overflow: visible;
+	width: 50%;
+	height: auto;
+	margin: 0 auto;
+}
+
+#dummy {
+    display: none;
+}
+
+.fancybox-inner iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+body {	background:black;}

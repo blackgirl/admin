@@ -17,35 +17,43 @@ if(isset($_FILES['files'])){
         if($file_size > 3097152) {
 			$errors[]='File size must be less than 3 MB';
         }
-        
-        if(isset($_GET['route'])) {
-            $type = $_GET['route'];
-            $controller_name = "Controller_".ucfirst($type);
-        }
-        $uc = new $controller_name;
-        $ins_id = $uc->getOwnerId();
-        $tableName = ($type == 'projects')?'uni_imgs':'uni_offer_cases';
-        $colName = substr($type, 0, (strlen($type)-1));
-
-        $query = "INSERT INTO ".$tableName." (`file_name`,`file_size`,`file_type`,`".$colName."_id`) VALUES('$file_name','$file_size','$file_type',".$ins_id."); ";
-        
-        $desired_dir="uni_imgs";
-        if(empty($errors)==true){
-            if(is_dir($desired_dir)==false) {
-                mkdir("$desired_dir"); // Create directory if it does not exist
+        if($file_name && empty($error)) {
+            if(isset($_GET['route'])) {
+                $type = $_GET['route'];
+                $controller_name = "Controller_".ucfirst($type);
             }
+            $uc = new $controller_name;
+            $ins_id = $uc->getOwnerId();
+            // $tableName = ($type == 'projects')?'uni_projects_cases':'uni_offers_cases';
+            // $tableName = 'uni_'.$type.'_cases';
+            // $colName = substr($type, 0, (strlen($type)-1));
+            
 
-            if(is_dir("$desired_dir/".$file_name)==false) {
-                move_uploaded_file($file_tmp,"$desired_dir/".$file_name);
+            $query = "INSERT INTO `uni_".$type."_cases` (`file_name`,`file_size`,`file_type`,`file_owner_id`) VALUES('$file_name','$file_size','$file_type',".$ins_id."); ";
+            // $query = "INSERT INTO ".$tableName." (`file_name`,`file_size`,`file_type`,`".$colName."_id`) VALUES('$file_name','$file_size','$file_type',".$ins_id."); ";
+            
+            $desired_dir="uni_uploads";
+            if(empty($errors)==true){
+                if(is_dir($desired_dir)==false) {
+                    mkdir("$desired_dir"); // Create directory if it does not exist
+                }
+
+                if(is_dir("$desired_dir/".$file_name)==false) {
+                    move_uploaded_file($file_tmp,"$desired_dir/".$file_name);
+                } else {
+                    $new_dir="$desired_dir/".$file_name.time();
+                    rename($file_tmp,$new_dir); // rename the file if another one exist				
+                }
+
+        		mysqli_query($link,$query);
+                $upload_status = true;
+
             } else {
-                $new_dir="$desired_dir/".$file_name.time();
-                rename($file_tmp,$new_dir); // rename the file if another one exist				
+                $upload_status = false;
+                print_r($errors);
             }
-
-    		mysqli_query($link,$query);
-            $upload_status = true;
-
         } else {
+            $errors[]='File name is not defined.';
             $upload_status = false;
             print_r($errors);
         }
