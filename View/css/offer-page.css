@@ -545,6 +545,7 @@ li img {
   height: auto;
   width: auto;
 }
+#PersonalOffer li img {max-height: 200px;width:auto;}
 li img.landscape {
   max-width: none;
   max-height: 100%;

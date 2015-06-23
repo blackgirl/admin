@@ -1,7 +1,7 @@
 <?php $html.=<<<HTML
 <body id="OfferPage"><div class="wrapper"><header id="home"><nav class="navbar navbar-top" role="navigation"><div class="navbar-inner"><div class="container"><a href= "#" class="back-to-top"><img src="view/img/logo_big.png " alt="logo" class="logo"></a><ul class="nav"><li class="active"><div class="nav-download"><i class="fa fa-download"></i><a href="index.html" title="">Download as <span class="pdf">PDF</span></a></div></li></ul><section class="title"><div class="header-title"><span>OFFER TO </span><span class="fb">$obj->title</span></div></section><section class="content"><div class="offer-content"><div class="offer-project"><div class="preject-title"><span>$obj->title</span></div><div class="project-info"><article class="row overview"><div class="overview-content clearfix"><div class="overview-icon"><i class="fa fa-file-text-o animated rotateIn" data-type="rotateIn" style="visibility: visible;"></i></div><h4 class="overview-title">Overview</h4><p>$obj->description</p></div></article></div>
 <article class="row overview cases"><div class="overview-content clearfix"><div class="overview-icon"><i class="fa fa-cog animated rotateIn" data-type="rotateIn" style="visibility: visible;"></i></div>
-<h4 class="overview-title">Related cases</h4><div class="overview-imgs col-md-10"><section class="row" id="portfolio-items">
+<h4 class="overview-title">Related cases</h4><div class="overview-imgs col-md-11"><section class="row" id="portfolio-items">
 <ul class="portfolio" id="portfolio-slider">
 HTML;
 $t = 0;
@@ -13,14 +13,14 @@ $html.=<<<HTML
 HTML;
 }
 $html.=<<<HTML
-</ul></section></div><h4 class="overview-title">Attachments</h4><div class="overview-imgs col-md-10"><section class="row" id="portfolio-items"><ul class="portfolio" id="portfolio-slider">
+</ul></section></div><div class="overview-icon"><i class="fa fa-link animated rotateIn" data-type="rotateIn" style="visibility: visible;"></i></div><h4 class="overview-title">Attachments</h4><div class="overview-imgs col-md-11"><section class="row" id="portfolio-items"><ul class="portfolio" id="portfolio-slider">
 HTML;
 $t = 0;
 foreach ($attachments as $attached) {
 	$attachedName = $attached['file_name'];
 	$attachedType = strtoupper(GetFileType($attached['file_type']));
 $html.=<<<HTML
-    <li><article class="col-md-4 project" data-tags="photography,technology"><div class="project-item-isotope"><div class="project-image">
+    <li><article class="col-md-3 project" data-tags="photography,technology"><div class="project-item-isotope"><div class="project-image">
     <img src="view/img/file_types/{$attachedType}.png" data-url="uni_uploads/{$attachedName}" alt="sdf"></div></div></article></li>
 HTML;
 }

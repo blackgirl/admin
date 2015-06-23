@@ -132,6 +132,10 @@ input.has-warning {
 .container ul.nav {
 	padding: 0;
 }
+#PersonalOffer .container ul.nav {padding-top: 25px;}
+#PersonalOffer .header-title {padding: 70px 0 25px 0;}
+#PersonalOffer .navbar .nav {right: 30px;}
+#PersonalOffer .navbar .back-to-top img {left: 30px;}
 .navbar {
 	padding: 0px 0px 0px 0px;
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
@@ -360,7 +364,8 @@ input[type=checkbox].glyphicon{
 #PersonalOffer .overview.cases .project-image .project-item-isotope {
 	background: transparent;border-color:transparent;
 } 
-#PersonalOffer .container {padding: 0px; margin:0px;}
+#PersonalOffer .overview-imgs {margin-bottom: 50px;}
+#PersonalOffer .container {width:100%;padding: 0px; margin:0px;}
 #AdminPage .offer-task-list ul>li .o-task {font-weight:200;text-align: left;}
 #AdminPage .offer-task-list ul>li .o-num {font-size:14px;padding: 0 15px;}
 #AdminPage .popover-content a:hover,
@@ -622,7 +627,7 @@ div.fancybox-inner {
 
 
 /* LoginPage */
-html {height:100%;border: 20px solid white;}
+html {height:100%;border: 0px solid white;}
 body:not(#AdminPage) {width: 100%;height: 100%;background: whitesmoke;}
 #LoginPage .container {
 	position:absolute;
