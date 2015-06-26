@@ -1,6 +1,4 @@
 <?php
-require_once('config.php');
-
 class projectsRepository {
 	private static $instance = null;
 	private $link;

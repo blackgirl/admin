@@ -1,7 +1,6 @@
 <?php
     require_once('controller/users/userController.php');
     require_once('general_helper.php');
-
     if(isset($_GET['route'])) {
         $route = $_GET['route'];
         switch($route){
@@ -15,6 +14,8 @@
             			$_SESSION['password'] = $array['password'];
                         ($_SESSION['id']!="" && $_SESSION['name']!='')?include('view/users/adminpage.php'):include('view/users/auth.php');
                     } else include('view/users/auth.php');
+                } else if(isset($_SESSION['id'],$_SESSION['name'],$_SESSION['password'])){
+                    include('view/users/adminpage.php');
                 }
             } break;
             case "projects": 
@@ -43,9 +44,9 @@
             } break;
             default: if(!isset($_SESSION['name'])) include('view/users/auth.php');
         }
-    }
-    elseif(!isset($_SESSION['name'])) include('view/users/auth.php');
+    } elseif(!isset($_SESSION['name'])) include('view/users/auth.php');
     else include('view/404.html');
+
     if(isset($_REQUEST['action'])) {
         $action_type = $_REQUEST['action'];
 
@@ -102,8 +103,7 @@
     }
     if(isset($_POST['add-new-offer'])) {
         $oc = new Controller_Offers();
-        $estimationItem = []; $estimation = [];
-        $arr = isset($_POST['estim'])?$_POST['estim']:[];
+        $arr = isset($_POST['estim'])?$_POST['estim']:false;
         while (list($k,$v)=each($arr)) {
             if (is_array($v)) {
                 array_splice($arr,$k,1,$v);
@@ -111,7 +111,7 @@
             }
         }
         if(trim($_POST['new-offer-title']) && trim($_POST['new-offer-description']))
-            if($oc->addOffer($_POST['new-offer-title'],$_POST['new-offer-url'],trim($_POST['new-offer-description']),$arr,'',[],$_POST['new-offer-cases'])) {
+            if($oc->addOffer($_POST['new-offer-title'],$_POST['new-offer-url'],trim($_POST['new-offer-description']),$arr,false,false,$_POST['new-offer-cases'])) {
                 require_once('helpers/uploader.php');
                 include('view/includes/reloader.php');
             }

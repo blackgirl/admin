@@ -11,15 +11,14 @@ class offerAdapter {
 	function offerSwitcher($type) {
 		switch($type) {
 			case "preview": {
-				$this->html = 'view/includes/estimate_panel_preview.php';
+				$this->html = 'View/includes/estimate_panel_preview.php';
             } break;
             case "root": {
-				$this->html = ($_SESSION['id']!="" && $_SESSION['name']!='')?'view/includes/estimate_panel_root.php':'';
+				$this->html = ($_SESSION['id']!="" && $_SESSION['name']!='')?'View/includes/estimate_panel_root.php':'';
             } break;
-            default: $this->html = ($_SESSION['id']!="" && $_SESSION['name']!='')?'view/includes/estimate_panel_root.php':'';
+            default: $this->html = ($_SESSION['id']!="" && $_SESSION['name']!='')?'View/includes/estimate_panel_root.php':'';
 		}
 		return $this->html;
 	}
 }
-
 ?>

@@ -23,13 +23,14 @@ include 'view/includes/admin_header.php';
         else $technologiesClass = 'hide';
 ?>
 <?php $html.=<<<HTML
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"><div class="panel panel-default {$ndaClass}"><div class="panel-heading" role="tab" id="heading{$obj->title}"><h4 class="panel-title"><input type="checkbox" name="project[]" value="{$obj->id}" class="glyphicon glyphicon-unchecked"/><a data-toggle="collapse" data-parent="#accordion" href="#collapse{$obj->id}" aria-expanded="false" aria-controls="collapse{$obj->id}">$obj->title<strong title="NDA">*</strong></a><form action="{$_SERVER['PHP_SELF']}?route=projects" method="post" ><div class="btn-group text-right" id="projects" role="group"><button type="submit" class="btn btn-info btn-sm" id="btn-admin-edit"><span class="fa fa-pencil"></span></button><button type="submit" class="btn btn-default btn-sm" id="btn-admin-hide"><span class="fa fa-eye-slash" data-id="{$obj->id}"></span></button><button type="submit" name="deleteProjects" value=" " class="btn btn-danger btn-sm" id="btn-admin-delete" data-id="{$obj->id}"><span class="fa fa-trash delete-one"></span></button></div></form></h4></div><div id="collapse{$obj->id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{$obj->id}"><div class="panel-body"><section class='col-md-12'><div class='col-md-8 col-md-offset-1'><h5 class='col-md-8 col-lg-11 project-title'>$obj->title<a href="{$url}">$url</a></h5><div class='col-md-8 col-lg-11'><h5>Description:</h5><p>$obj->description</p></div><div class="col-md-8 col-lg-11 {$futureClass}"><h5>Key Futures:</h5><blockquote><ul>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"><div class="panel panel-default {$ndaClass}"><div class="panel-heading" role="tab" id="heading{$obj->title}"><h4 class="panel-title"><input type="checkbox" name="project[]" value="{$obj->id}" class="glyphicon glyphicon-unchecked"/><a data-toggle="collapse" data-parent="#accordion" href="#collapse{$obj->id}" aria-expanded="false" aria-controls="collapse{$obj->id}">$obj->title<strong title="NDA">*</strong></a><form action="{$_SERVER['PHP_SELF']}?route=projects" method="post" ><div class="btn-group text-right" id="projects" role="group"><button type="submit" class="btn btn-info btn-sm" id="btn-admin-edit"><span class="fa fa-pencil"></span></button><button type="submit" class="btn btn-default btn-sm" id="btn-admin-hide"><span class="fa fa-eye-slash" data-id="{$obj->id}"></span></button><button type="submit" name="deleteProjects" value=" " class="btn btn-danger btn-sm" id="btn-admin-delete" data-id="{$obj->id}"><span class="fa fa-trash delete-one"></span></button></div></form></h4></div><div id="collapse{$obj->id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{$obj->id}"><div class="panel-body"><section class='col-md-12'><div class='col-md-8 col-md-offset-1'><h5 class='col-md-8 col-lg-11 project-title'>$obj->title<a href="{$url}">$url</a></h5><div class='col-md-8 col-lg-11'><h5>Description:</h5><p>$obj->description</p></div><div class="col-md-8 col-lg-11 {$futureClass}"><h5>Key Futures:</h5><blockquote><ul>
 HTML;
 ?>
 <?php
 for($i=0;$i<count($futures);$i++) {
+    $f = $futures[$i];
 $html.=<<<HTML
-<li>$futures[$i]</li>
+<li>$f</li>
 HTML;
 }
 $html.=<<<HTML
